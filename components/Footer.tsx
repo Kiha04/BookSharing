@@ -21,7 +21,6 @@ const Footer: React.FC = () => {
         </nav>
       </div>
       <br />
-      <br />
     </footer>
   );
 };

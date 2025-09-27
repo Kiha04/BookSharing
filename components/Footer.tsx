@@ -20,6 +20,10 @@ const Footer: React.FC = () => {
            <a href="/service">サービスはこちら</a>*/}
         </nav>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
     </footer>
   );
 };

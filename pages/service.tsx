@@ -55,11 +55,11 @@ const ServicePage: React.FC = () => {
           </div>
         </section>
 
-        {/*    {/* --- 利用イメージ --- */}
+        {/*    {/* --- 利用イメージ --- 
         <section className={serviceStyles.section}>
              <h3 className={serviceStyles.sectionTitle}>利用イメージ</h3>
               <div className={serviceStyles.screenshotArea}>
-                 {/* ここにアプリのスクリーンショットや利用フロー図などを挿入 */}
+                 *** ここにアプリのスクリーンショットや利用フロー図などを挿入 ***
                  <img src="/images/app-screenshot-placeholder.png" alt={`${serviceName} アプリ画面イメージ`} />
                  <p style={{marginTop: '1rem', fontSize:'0.9em', color:'var(--muted-text-color)'}}>（アプリ画面イメージ）</p>
               </div>
@@ -101,7 +101,7 @@ const ServicePage: React.FC = () => {
                 以下のページをご覧いただくか、お気軽にお問い合わせください。
              </p>
              <div className={serviceStyles.ctaGrid}>
-                 {/* Form.module.css のボタンスタイルを流用 */}
+                 *** Form.module.css のボタンスタイルを流用 ***
                 <Link href="/for-universities" passHref>
                     <button type="button" className={`${containerStyles.button} ${containerStyles.buttonPrimary}`}>大学・学校法人様へ</button>
                 </Link>
@@ -113,7 +113,7 @@ const ServicePage: React.FC = () => {
                 </Link>
              </div>
          </section>
-*/}
+         */}
       </div>
     </>
   );

@@ -15,7 +15,7 @@ const PrivacyPolicyPage: React.FC = () => {
         <h2 className={policyStyles.policyTitle}>プライバシーポリシー</h2>
 
         <p className={policyStyles.policyText}>
-          ＿＿＿＿＿＿＿＿（以下，「当社」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。
+          2025 学内図書シェアプロジェクト（以下，「当社」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。
         </p>
 
         <h3 className={policyStyles.policySectionTitle}>第1条（個人情報）</h3>
@@ -113,11 +113,13 @@ const PrivacyPolicyPage: React.FC = () => {
         <p className={policyStyles.policyText}>
           本ポリシーに関するお問い合わせは，下記の窓口までお願いいたします。
         </p>
-        <p className={policyStyles.policyText}>
-            住所：<span className={policyStyles.placeholder}>[ここに住所を記入]</span><br />
-            社名：<span className={policyStyles.placeholder}>[ここに組織名/サービス名を記入]</span><br />
-            担当部署：<span className={policyStyles.placeholder}>[ここにお問い合わせ担当部署/担当者名を記入]</span><br />
-            Eメールアドレス：<span className={policyStyles.placeholder}>[ここにお問い合わせ用メールアドレスを記入]</span>
+        <a 
+  href="https://docs.google.com/forms/d/e/1FAIpQLSdJtFBo6gM5VfF_cxwOQvxXbC0x3g2GoCrm7z3r8JFdJqMGGw/viewform?usp=sharing&ouid=109689969002653833602" 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  お問い合わせフォームを開く
+</a>
         </p>
 
       </div>

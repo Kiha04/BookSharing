@@ -1,0 +1,54 @@
+/* src/styles/globals.css */
+:root {
+  /* デフォルトテーマ */
+  --primary-color: #ff69b4;
+  --secondary-color: #f0ad4e;
+  --text-color: #333;
+  --light-text-color: #f8f9fa;
+  --bg-color: #ffffff;
+  --light-gray-bg: #f8f9fa;
+  --border-color: #dee2e6;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  --hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+
+  /* ランディングページ専用テーマ */
+  --lp-primary-color: #f289be;
+  --lp-light-text-color: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--base-font-family);
+  background-color: var(--light-gray-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font-family);
+  color: var(--primary-color); 
+  margin-top: 1.5em;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #004085;
+  text-decoration: underline;
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -1,0 +1,118 @@
+/* src/styles/About.module.css */
+
+.pageTitle {
+    /* Policy.module.css の policyTitle スタイルを参考に */
+    font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+    color: var(--primary-color, #0056b3);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color, #dee2e6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+  
+  .section {
+    margin-bottom: 2.5rem;
+  }
+  
+  .sectionTitle {
+    font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+    font-size: 1.4rem;
+    color: var(--text-color, #333);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--border-color, #dee2e6);
+  }
+  
+  .sectionText {
+    line-height: 1.8;
+    font-size: 1rem;
+    color: var(--text-color, #333);
+  }
+  
+  /* 価値観グリッド */
+  .valuesGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+  }
+  .valueItem {
+      text-align: center;
+  }
+  .valueIcon {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 0.8rem;
+  }
+  .valueItem h4 {
+      font-family: var(--heading-font-family);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+  }
+  .valueItem p {
+      font-size: 0.95rem;
+      color: var(--muted-text-color);
+      line-height: 1.6;
+  }
+  
+  
+  /* 会社情報テーブル */
+  .companyTable {
+    width: 100%;
+    border-collapse: collapse; /* 枠線を重ねる */
+    margin-top: 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .companyTable th,
+  .companyTable td {
+    border: 1px solid var(--border-color, #dee2e6);
+    padding: 0.8rem 1rem;
+    text-align: left;
+    vertical-align: top; /* 上揃え */
+  }
+  
+  .companyTable th {
+    background-color: var(--light-gray-bg, #f8f9fa);
+    font-weight: 700;
+    width: 150px; /* 見出し列の幅を固定 */
+  }
+  
+  .companyTable a {
+      /* 既存のリンクスタイル */
+      color: var(--primary-color);
+      text-decoration: underline;
+  }
+  
+  @media (max-width: 600px) {
+      .companyTable th,
+      .companyTable td {
+          display: block; /* スマホでは縦積みに */
+          width: 100%;
+          border-bottom: none; /* 下線は最後のtdでつける */
+      }
+      .companyTable th {
+          border-bottom: none;
+          padding-bottom: 0.2rem;
+          font-size: 0.9rem;
+      }
+      .companyTable td {
+          padding-top: 0.2rem;
+          border-top: none;
+          border-bottom: 1px solid var(--border-color, #dee2e6);
+      }
+      .companyTable tr:last-child td {
+           border-bottom: 1px solid var(--border-color, #dee2e6); /* 最後の行の下線 */
+      }
+      .valuesGrid {
+           grid-template-columns: 1fr; /* スマホでは縦積み */
+      }
+  }

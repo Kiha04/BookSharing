@@ -1,0 +1,43 @@
+/* src/styles/Footer.module.css (新規作成) */
+
+.footer {
+    background-color: #f69ce4; /* ランディングページフッターの色を流用 */
+    color: var(--light-text-color, #010101);
+    padding: 1.5rem 1rem; /* パディング */
+    margin-top: 4rem; /* メインコンテンツとの間に十分なマージン */
+    text-align: center;
+  }
+  
+  /* 広告表示セクション (任意: 広告周りの余白調整用) */
+  .adSection {
+    margin-bottom: 1.5rem; /* 広告とフッター内容の間のマージン */
+    /* AdBannerコンテナのデフォルトマージンを打ち消す場合など */
+    /* & > :global(div[class*="AdBanner_adBannerContainer"]) { */
+      /* margin-top: 0; */
+      /* margin-bottom: 0; */
+    /* } */
+  }
+  
+  .footerContent {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  .footerContent p {
+    margin: 0;
+  }
+  
+  /* フッター内のリンクスタイル (任意) */
+  .footerContent nav {
+    margin-top: 0.5rem;
+  }
+  .footerContent a {
+    color: var(--light-text-color, #030303);
+    text-decoration: none;
+    margin: 0 0.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+  .footerContent a:hover {
+    opacity: 1;
+  }

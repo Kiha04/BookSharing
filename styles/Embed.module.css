@@ -1,0 +1,26 @@
+/* src/styles/Embed.module.css (新規作成) */
+
+.formEmbedContainer {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative; /* 必要に応じて */
+    /* 枠線をつける場合 (任意) */
+    /* border: 1px solid var(--border-color, #dee2e6); */
+    /* border-radius: var(--input-border-radius, 4px); */
+    /* overflow: hidden; */ /* 枠線と角丸を併用する場合 */
+  }
+  
+  .googleFormEmbed {
+    display: block; /* block要素として扱う */
+    width: 100%;    /* 親要素の幅に合わせる */
+    height: 800px;  /* ★ Googleフォーム埋め込みコードにあった高さを目安に設定 (調整必須) */
+    border: none;   /* iframeのデフォルト枠線を消す */
+    overflow: auto; /* フォームが長い場合にスクロールバーを表示 */
+  }
+  
+  /* スマホ表示での高さ調整 (任意) */
+  @media (max-width: 768px) {
+    .googleFormEmbed {
+      height: 750px; /* スマホでは少し高さを変えるなど */
+    }
+  }

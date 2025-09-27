@@ -1,0 +1,142 @@
+/* src/styles/Service.module.css */
+
+/* ページタイトル (Policy.module.css と同様) */
+.pageTitle {
+    font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+    color: var(--primary-color, #0056b3);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color, #dee2e6);
+  }
+  
+  /* 導入テキスト */
+  .introText {
+    margin-bottom: 3rem; /* 機能セクションとのスペース */
+    line-height: 1.8;
+    font-size: 1.1rem; /* 少し大きめ */
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--muted-text-color, #6c757d);
+  }
+  
+  /* セクション共通 */
+  .section {
+    margin-bottom: 3rem; /* セクション間のスペース */
+  }
+  
+  /* セクションタイトル (Policy.module.css とは少し変える) */
+  .sectionTitle {
+    font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+    font-size: 1.6rem;
+    color: var(--text-color, #333);
+    margin-top: 0;
+    margin-bottom: 2rem; /* 下マージンを広げる */
+    text-align: center;
+    padding-bottom: 0.5rem;
+    position: relative;
+  }
+  /* タイトルの下線装飾 */
+  .sectionTitle::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: var(--secondary-color, #f0ad4e); /* アクセントカラー */
+      margin: 0.5rem auto 0; /* 中央揃え */
+  }
+  
+  
+  /* 機能グリッド (LandingPage.module.css を流用するのでここでは不要) */
+  /* .featuresGrid { ... } */
+  /* .featureCard { ... } */
+  /* .featureIcon { ... } */
+  
+  
+  /* スクリーンショットエリア */
+  .screenshotArea {
+    background-color: var(--light-gray-bg, #f8f9fa);
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+    border-radius: var(--base-border-radius, 8px);
+    border: 1px solid var(--border-color, #dee2e6);
+  }
+  .screenshotArea img {
+    max-width: 80%;
+    height: auto;
+    border: 1px solid var(--border-color, #dee2e6); /* 画像にも枠線 */
+    box-shadow: var(--card-shadow, 0 4px 8px rgba(0,0,0,0.05));
+  }
+  
+  
+  /* メリットリスト */
+  .benefitsList {
+      display: flex;
+      flex-direction: column; /* 縦積みリスト */
+      gap: 1.5rem; /* 各項目間のスペース */
+      max-width: 800px;
+      margin: 0 auto;
+  }
+  .benefitItem {
+      display: flex;
+      align-items: flex-start; /* 上揃え */
+      gap: 1.5rem; /* アイコンとテキストの間 */
+      padding: 1.5rem;
+      background-color: var(--bg-color);
+      border-radius: var(--base-border-radius);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--card-shadow);
+  }
+  .benefitIcon {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-top: 0.2rem; /* 位置調整 */
+  }
+  .benefitItem h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0; /* マージン調整 */
+      color: var(--text-color);
+  }
+  .benefitItem p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+      color: var(--muted-text-color);
+  }
+  
+  
+  /* CTAセクション */
+  .ctaSection {
+      text-align: center;
+      margin-top: 4rem; /* 上マージン広め */
+      padding: 2.5rem 1rem;
+      background-color: var(--light-gray-bg);
+      border-radius: var(--base-border-radius);
+      border: 1px solid var(--border-color);
+  }
+  .ctaSection p {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: var(--muted-text-color);
+  }
+  .ctaGrid {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap; /* 折り返し */
+  }
+  
+  /* スマホ表示 */
+  @media (max-width: 768px) {
+      .introText { font-size: 1rem; }
+      .sectionTitle { font-size: 1.4rem; margin-bottom: 1.5rem;}
+      .benefitItem { flex-direction: column; text-align: center; }
+      .benefitIcon { margin: 0 auto 1rem auto; }
+      .screenshotArea img { max-width: 100%; }
+  }

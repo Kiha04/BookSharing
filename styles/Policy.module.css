@@ -1,0 +1,52 @@
+/* src/styles/Policy.module.css*/
+
+.policyTitle {
+    font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+    color: var(--primary-color, #0056b3);
+    font-size: 1.8rem; 
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem; 
+    border-bottom: 1px solid var(--border-color, #dee2e6);
+  }
+  
+  .policySectionTitle {
+    font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+    font-size: 1.4rem; 
+    color: var(--text-color, #333);
+    margin-top: 2.5rem; 
+    margin-bottom: 1rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--border-color, #dee2e6);
+  }
+  
+  .policyText {
+    margin-bottom: 1em; 
+    line-height: 1.8; 
+    font-size: 1rem; 
+    color: var(--text-color, #333);
+  }
+  
+  .policyList {
+    margin-left: 1.5rem; 
+    margin-bottom: 1em;
+    padding-left: 1rem; 
+    line-height: 1.7;
+  }
+  
+  .policyList li {
+    margin-bottom: 0.6em;
+  }
+
+  .policyList ol {
+    margin-top: 0.5em;
+    margin-left: 1rem; 
+  }
+  
+  .placeholder {
+    font-style: italic;
+    color: var(--muted-text-color, #6c757d);
+    background-color: #f8f9fa;
+    padding: 0 0.2em;
+  }

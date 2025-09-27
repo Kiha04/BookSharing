@@ -1,0 +1,279 @@
+/* src/styles/ForUniversities.module.css */
+
+/* --- 基本レイアウト --- */
+.pageContainer {
+    font-family: var(--base-font-family);
+    color: var(--text-color);
+  }
+  
+  .contentWrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* --- ヒーローセクション --- */
+  .hero {
+    background: linear-gradient(to right, var(--primary-color, #0056b3), #007bff); /* やや落ち着いたグラデーション */
+    color: var(--light-text-color, #fff);
+    padding: 5rem 1rem;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-family: var(--heading-font-family);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    color: var(--light-text-color);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+  }
+  
+  .heroCtaButton {
+    /* 既存のボタンをベースに調整 */
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color); /* ボタン文字はプライマリカラー */
+    background-color: #ffffff; /* 白背景 */
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--card-shadow);
+  }
+  .heroCtaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+  }
+  
+  /* --- セクション共通 --- */
+  .section {
+    padding: 4rem 0;
+  }
+  .sectionAlternate { /* 背景色を変える場合 */
+    background-color: var(--light-gray-bg, #f8f9fa);
+    padding: 4rem 0;
+    border-top: 1px solid var(--border-color, #dee2e6);
+    border-bottom: 1px solid var(--border-color, #dee2e6);
+  }
+  
+  .sectionTitle {
+    text-align: center;
+    font-family: var(--heading-font-family);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+  }
+  .sectionTitle::after { /* タイトルの下線装飾 */
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: var(--secondary-color); /* アクセントカラー */
+      margin: 0.5rem auto 0;
+  }
+  
+  
+  /* --- 課題提起セクション --- */
+  .problemText {
+      text-align: center;
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      color: var(--muted-text-color);
+  }
+  
+  /* --- メリットセクション --- */
+  .benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .benefitCard {
+    background-color: var(--bg-color);
+    padding: 2rem 1.5rem;
+    border-radius: var(--base-border-radius);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .benefitCard:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+  }
+  
+  .benefitIcon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  
+  .benefitCard h3 {
+    font-family: var(--heading-font-family);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+  }
+  
+  .benefitCard p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  /* --- 仕組みセクション --- */
+  .howItWorksContent {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+  }
+  .howItWorksText {
+      flex: 1;
+  }
+  .howItWorksImage {
+      flex: 1;
+      text-align: center;
+  }
+  .howItWorksImage img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
+  }
+  .howItWorksText h3 {
+      font-size: 1.4rem;
+      margin-top: 0;
+      color: var(--primary-color);
+  }
+  .howItWorksText ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+  }
+  
+  /* --- 価格セクション --- */
+  .pricingTable {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+  }
+  .priceCard {
+      border: 1px solid var(--border-color);
+      border-radius: var(--base-border-radius);
+      padding: 2rem;
+      text-align: center;
+      width: 300px;
+      background-color: var(--bg-color);
+      box-shadow: var(--card-shadow);
+  }
+  .priceCard h3 {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+      margin-top: 0;
+  }
+  .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 1rem 0;
+  }
+  .priceCard ul {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+      text-align: left;
+      color: var(--muted-text-color);
+  }
+  .priceCard ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+  }
+  .priceCard ul li::before { /* チェックマーク */
+      content: '✔';
+      color: var(--success-color, green);
+      position: absolute;
+      left: 0;
+  }
+  
+  .donationSection {
+    text-align: center;
+    margin-top: 3rem; /* 価格セクションからのマージン */
+    padding: 2rem;
+    background-color: var(--light-gray-bg, #f8f9fa); /* 背景色 */
+    border-radius: var(--base-border-radius, 8px);
+    border: 1px solid var(--border-color);
+}
+.donationSection h3 { /* セクションタイトル */
+    font-family: var(--heading-font-family);
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.donationSection p {
+    color: var(--muted-text-color);
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.donationButton {
+    /* 既存のボタンスタイルをベースにする */
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    /* 寄付ボタンは目立つように二次色を使うなど */
+    color: #fff;
+    background-color: var(--secondary-color, #f0ad4e);
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.donationButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    background-color: #ec971f; /* ホバー色 */
+}
+
+  
+  /* --- CTAセクション --- */
+  .ctaSection {
+    text-align: center;
+  }
+  .ctaSection p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* --- レスポンシブ --- */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    .sectionTitle { font-size: 1.8rem; margin-bottom: 2rem; }
+    .howItWorksContent { flex-direction: column; }
+    .pricingTable { flex-direction: column; align-items: center;}
+    .priceCard { width: 90%; max-width: 350px;}
+    .benefitsGrid {
+      grid-template-columns: 1fr;
+    }
+  }

@@ -1,0 +1,130 @@
+.ctaButtons {
+  width: 728px;
+  height: 90px; 
+  margin: 0 auto;
+}
+.adAreaTitle {
+  font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--muted-text-color, #6c757d);
+  text-align: center;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .ctaButtons {
+    width: 468px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ctaButtons {
+    width: 320px;
+    height: 50px;
+  }
+}
+
+.ctaButtons {
+    display: block; 
+    margin: 1.5rem auto; 
+    padding: 0 1rem;
+    max-width: 728px; 
+    width: 100%; 
+    box-sizing: border-box;
+  }
+  
+  .adBannerLink {
+    display: block; 
+    cursor: pointer;
+    transition: opacity 0.2s ease; 
+  }
+  
+  .adBannerLink:hover {
+    opacity: 0.9;
+  }
+  
+.adBannerContainer {
+  /* このコンテナは広告全体の位置を決める役割 */
+  display: block;
+  max-width: 728px; /* 広告エリアの最大幅は維持 */
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* 中の要素を中央揃えにするため */
+}
+
+  .adBannerImage {
+    display: block; 
+    width: auto; 
+    height: auto; 
+    max-width: 100%; 
+    display: inline-block;
+    border-radius: var(--input-border-radius, 4px); 
+    box-shadow: var(--card-shadow, 0 4px 8px rgba(0,0,0,0.05)); 
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .adLabel {
+    position: absolute; 
+    top: 4px;
+    right: 4px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    border-radius: 3px;
+    z-index: 1;
+
+   
+
+
+.muteButton {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.6); 
+  color: white;
+  border: none;
+  border-radius: 50%; 
+  width: 32px; 
+  height: 32px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10; 
+  transition: background-color 0.2s ease;
+  opacity: 0.7; 
+}
+
+
+
+.ad-container {
+  width: 728px; 
+  height: 90px; 
+  margin: 0 auto;
+}
+
+/* 画面幅が 768px (タブレットの一般的なサイズ) 以下の場合 */
+@media (max-width: 768px) {
+  .ad-container {
+    width: 468px;
+    height: 60px;
+  }
+}
+
+/* 画面幅が 480px (スマートフォンの一般的なサイズ) 以下の場合 */
+@media (max-width: 480px) {
+  .ad-container {
+    width: 320px;
+    height: 50px;
+  }
+}
+
+  }

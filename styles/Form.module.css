@@ -1,0 +1,732 @@
+/* src/styles/Form.module.css */
+/* フォーム、検索結果、関連要素用のスタイル */
+
+/* --- コンテナ・タイトル --- */
+.container {
+  max-width: 600px; /* コンテナ幅 */
+  margin: 3rem auto; /* 上下マージン調整 */
+  padding: 2rem; /* パディング調整 */
+  border: 1px solid var(--border-color, #dee2e6); /* ボーダー色 */
+  border-radius: var(--base-border-radius, 8px); /* 角丸 */
+  background-color: var(--bg-color, #ffffff); /* 背景色 (白) */
+  box-shadow: var(--card-shadow, 0 4px 8px rgba(0, 0, 0, 0.05)); /* 影 */
+}
+
+.formTitle {
+  font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+  color: var(--primary-color, #0056b3);
+  font-size: 1.8rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  display: flex; /* アイコンを中央揃えするため */
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* アイコンとテキストの間隔 */
+}
+
+/* --- フォームグループ・ラベル・入力 --- */
+.formGroup {
+  margin-bottom: 1.5rem; /* 下マージン */
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.6rem; /* 下マージン */
+  font-weight: 700; /* 太さ */
+  font-size: 0.95rem;
+  color: var(--text-color, #333);
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 0.75rem 1rem; /* パディング */
+  border: 1px solid var(--muted-text-color, #6c757d); /* 濃いめの枠線 */
+  border-radius: var(--input-border-radius, 4px); /* 角丸 */
+  font-family: inherit; /* 親要素のフォントを継承 */
+  font-size: 1rem;
+  line-height: 1.5; /* 行間 */
+  background-color: var(--bg-color, #ffffff);
+  color: var(--text-color, #333);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--primary-color, #0056b3);
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15); /* フォーカス時の影 */
+}
+
+/* Select 要素の矢印 (任意) */
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 12px;
+  padding-right: 2.5rem;
+}
+
+/* --- ボタン (共通・バリアント) --- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--button-border-radius, 50px); /* ランディングページ風 */
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+  line-height: 1.5;
+  white-space: nowrap; /* ボタンテキストが折り返さないように */
+}
+
+.button:active {
+    transform: scale(0.98); /* クリック時の効果 */
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* プライマリボタン (登録、検索、もらう など) */
+.buttonPrimary {
+  background-color: var(--primary-color, #0056b3);
+  color: var(--light-text-color, #f8f9fa);
+  border: 1px solid var(--primary-color, #0056b3); /* 枠線も同色で */
+}
+.buttonPrimary:hover:not(:disabled) {
+  background-color: #004085; /* 少し濃い青 */
+  border-color: #004085;
+  box-shadow: var(--hover-shadow, 0 6px 12px rgba(0, 0, 0, 0.1));
+}
+.buttonPrimary:disabled {
+    background-color: #a0c7e8;
+    border-color: #a0c7e8;
+}
+
+/* セカンダリボタン (キャンセル、ISBN検索 など) */
+.buttonSecondary {
+  background-color: var(--muted-text-color, #6c757d);
+  color: var(--light-text-color, #f8f9fa);
+  border: 1px solid var(--muted-text-color, #6c757d); /* 枠線を追加 */
+}
+.buttonSecondary:hover:not(:disabled) {
+  background-color: #5a6268;
+  border-color: #5a6268;
+  box-shadow: var(--hover-shadow, 0 6px 12px rgba(0, 0, 0, 0.1));
+}
+.buttonSecondary:disabled {
+    background-color: #c8cbcf;
+    border-color: #c8cbcf;
+}
+
+/* デフォルト/ニュートラルボタン (バーコードボタン など) */
+.buttonDefault {
+  background-color: #e9ecef;
+  color: var(--text-color, #333);
+  border: 1px solid var(--input-border-color, #ced4da);
+}
+.buttonDefault:hover:not(:disabled) {
+  background-color: #dde2e7;
+  border-color: #adb5bd;
+}
+.buttonDefault:disabled {
+    background-color: #f8f9fa;
+    color: #adb5bd;
+    border-color: #e9ecef;
+}
+
+/* --- 入力グループ --- */
+.isbnInputGroup,
+.searchInputGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* 要素間の隙間 */
+}
+.isbnInputGroup .input,
+.searchInputGroup .input {
+  flex-grow: 1; /* 入力欄が伸びる */
+}
+.isbnInputGroup .button,
+.searchInputGroup .button {
+    flex-shrink: 0; /* ボタンが縮まない */
+}
+
+/* バーコードボタン */
+.barcodeButton {
+  padding: 0.75rem; /* アイコンボタンなのでパディング調整 */
+}
+
+/* --- その他要素 --- */
+.thumbnailPreview {
+  display: block;
+  max-width: 100px;
+  height: auto;
+  margin: 0 auto 1.5rem auto; /* 中央寄せ + 下マージン */
+  border-radius: var(--input-border-radius, 4px); /* 角丸 */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 軽い影 */
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center; /* 中央寄せ */
+  gap: 1rem; /* ボタン間の隙間 */
+  margin-top: 2rem; /* 上マージン */
+  flex-wrap: wrap; /* 折り返し */
+}
+
+/* --- メッセージ表示 --- */
+.error,
+.infoMessage,
+.successMessage {
+  font-size: 0.9rem;
+  margin-top: 1rem; /* 上にマージンを追加 */
+  padding: 0.8rem 1rem; /* パディング */
+  border-radius: var(--input-border-radius, 4px); /* 角丸 */
+  border: 1px solid transparent; /* 枠線用に予約 */
+}
+
+.error {
+  color: var(--danger-color, #dc3545);
+  background-color: #f8d7da; /* 薄い赤背景 */
+  border-color: #f5c6cb; /* 赤系ボーダー */
+}
+
+.infoMessage {
+  color: var(--primary-color, #0056b3); /* 青系の文字色 */
+  background-color: #e7f0f8; /* 薄い青系の背景 */
+  border-color: #b8d4ec; /* 青系のボーダー */
+  text-align: center; /* 中央寄せ */
+}
+
+.successMessage {
+  color: var(--success-color, green);
+  font-weight: bold;
+  background-color: #e6f7ec; /* 薄い緑の背景 */
+  border: 1px solid #b7ebc9; /* 緑系のボーダー */
+  text-align: center; /* 中央寄せ */
+}
+
+.centeredText {
+  text-align: center;
+}
+
+/* --- 検索結果エリア --- */
+.resultsContainer {
+    margin-top: 2.5rem;
+}
+
+.resultsTitle {
+    font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+    color: var(--primary-color, #0056b3);
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color, #dee2e6);
+    padding-bottom: 0.8rem;
+}
+
+.searchResultItem {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: var(--base-border-radius, 8px);
+  background-color: var(--bg-color, #ffffff);
+}
+
+.resultThumbnail {
+  width: 60px;
+  height: auto;
+  max-height: 90px;
+  object-fit: cover;
+  border-radius: var(--input-border-radius, 4px);
+  flex-shrink: 0;
+}
+
+.resultDetails {
+  flex-grow: 1;
+  min-width: 150px;
+}
+
+.resultDetails p {
+  margin: 0.3rem 0;
+  line-height: 1.4;
+}
+
+.bookTitle {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-color, #333);
+}
+.bookAuthor {
+    font-size: 0.95rem;
+    color: var(--muted-text-color, #6c757d);
+}
+.bookMeta {
+    font-size: 0.9rem;
+    color: var(--muted-text-color, #6c757d);
+}
+.bookMeta .stockError { /* 在庫なしの場合のスタイル例 */
+    color: var(--danger-color, #dc3545);
+    font-weight: bold;
+}
+
+
+.receiveItemButton {
+  margin-left: auto; /* 右寄せ */
+  padding: 0.5rem 1rem; /* 少し小さめ */
+  font-size: 0.9rem;
+  flex-shrink: 0; /* 縮まないように */
+}
+
+/* --- その他 --- */
+.note {
+  font-size: 0.9rem;
+  color: var(--muted-text-color, #6c757d);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-top: 2rem; /* 上マージン */
+}
+
+/* --- レスポンシブ調整 (検索結果) --- */
+@media (max-width: 768px) {
+    .searchResultItem {
+        align-items: flex-start; /* 上揃え */
+    }
+    .resultDetails {
+        width: 100%;
+        order: 1; /* サムネイルより後に表示 (任意) */
+    }
+    .resultThumbnail {
+        margin-bottom: 0.5rem;
+        /* 中央寄せにする場合など */
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+    }
+    .receiveItemButton {
+        margin-left: 0; /* 右寄せ解除 */
+        width: 100%; /* 幅100% */
+        margin-top: 0.5rem; /* 上マージン */
+        order: 2; /* 詳細情報より後 (任意) */
+    }
+    .buttonGroup {
+        justify-content: center; /* 中央寄せ維持 */
+        /* 必要なら flex-direction: column; で縦積みに */
+    }
+}
+
+/* --- フォーム用 レスポンシブ調整 (任意) --- */
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem; /* スマホではパディングを少し減らす */
+    margin: 1.5rem auto;
+  }
+  .formTitle {
+    font-size: 1.5rem;
+  }
+  .button {
+    padding: 0.7rem 1.2rem; /* ボタンのパディング調整 */
+    font-size: 0.95rem;
+  }
+
+  /* --- フォーム用 レスポンシブ調整 (スマホ向け縦積み) --- */
+@media (max-width: 480px) { /* 480px以下の画面幅で適用 */
+
+  /* コンテナのパディング調整 (既存のレスポンシブ設定と重複する場合は統合) */
+  .container {
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+  }
+
+  /* (追加) 入力グループを縦積みに */
+  .isbnInputGroup,
+  .searchInputGroup {
+    flex-direction: column; /* 縦積みに変更 */
+    align-items: stretch; /* 幅を親要素に合わせる */
+    gap: 0.75rem; /* 縦方向の隙間 */
+  }
+
+  /* (追加) グループ内のボタンのスタイル調整 */
+  .isbnInputGroup .button,
+  .searchInputGroup .button {
+    width: 100%; /* 幅を100%に */
+    margin-top: 0.5rem; /* 上の要素との間にマージン */
+    margin-left: 0; /* 左マージンをリセット (barcodeButton用) */
+    justify-content: center; /* ボタン内のテキスト/アイコンを中央寄せ */
+  }
+
+  /* (追加) バーコードボタンの個別調整 */
+  .isbnInputGroup .barcodeButton {
+      margin-top: 0; /* 最初のボタンなので上マージン不要 */
+  }
+
+  
+}
+/* src/styles/Form.module.css に追加・修正 */
+
+/* ... (既存のスタイル) ... */
+
+/* 検索フォーム用コンテナ */
+.searchForm {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem; /* 下マージン */
+}
+.searchForm .input {
+  flex-grow: 1; /* 入力欄が伸びる */
+}
+.searchForm .button {
+  flex-shrink: 0; /* ボタンが縮まない */
+}
+
+/* 結果リストの基本スタイル */
+.resultsList {
+  list-style: none; /* リストマーカーを消す */
+  padding: 0;       /* デフォルトのパディングを消す */
+  margin-top: 2rem; /* 上マージン */
+}
+
+/* 結果0件メッセージ */
+.noResults {
+  text-align: center;
+  color: var(--muted-text-color, #6c757d);
+  padding: 2rem 1rem;
+  font-style: italic;
+}
+
+/* 画像なしプレースホルダー */
+.resultThumbnailPlaceholder {
+  width: 60px; /* resultThumbnail の幅に合わせる */
+  height: 90px; /* resultThumbnail の高さに合わせる */
+  flex-shrink: 0;
+  background-color: #eee; /* 背景色 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa; /* 文字色 */
+  font-size: 0.8rem;
+  text-align: center;
+  border-radius: var(--input-border-radius, 4px); /* 角丸 */
+}
+
+/* 在庫あり */
+.stockAvailable {
+  color: var(--success-color, green); /* 緑色 */
+  font-weight: bold;
+}
+
+/* 在庫なし */
+.stockUnavailable {
+  color: var(--danger-color, red); /* 赤色 */
+  font-weight: bold;
+}
+
+/* フォーム内のセクションタイトル (任意) */
+.formSectionTitle {
+  font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+  font-size: 1.3rem;
+  color: var(--text-color, #333);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color, #dee2e6);
+  padding-bottom: 0.5rem;
+}
+
+/* 検索結果コンテナのスタイル */
+.resultsContainer {
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: var(--input-border-radius, 4px); /* フォーム要素に合わせる */
+  padding: 0.5rem; /* 内側の余白 */
+  background-color: var(--bg-color, #ffffff); /* 背景色 */
+}
+
+/* 検索結果リストのタイトル (resultsContainer 内で使用) */
+.resultsTitle {
+    font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+    color: var(--muted-text-color, #6c757d); /* 少し控えめな色 */
+    font-size: 1rem; /* 少し小さめ */
+    text-align: center;
+    margin-top: 0.5rem; /* 上マージン */
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color, #dee2e6);
+}
+
+
+/* 検索結果アイテム (既存の .searchResultItem を流用・微調整) */
+.searchResultItem {
+  display: flex;
+  /* flex-wrap: wrap; */ /* 折り返さない方が選択しやすいかも */
+  align-items: center;
+  gap: 0.8rem; /* 隙間を少し狭める */
+  padding: 0.5rem; /* パディングを少し狭める */
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: var(--input-border-radius, 4px); /* フォーム要素に合わせる */
+  background-color: var(--bg-color, #ffffff);
+}
+.searchResultItem:last-child {
+  margin-bottom: 0;
+}
+
+/* サムネイル (既存の .resultThumbnail を流用・微調整) */
+.resultThumbnail {
+  width: 40px; /* さらに小さく */
+  height: auto;
+  max-height: 60px;
+  object-fit: cover;
+  border-radius: 2px; /* さらに小さい角丸 */
+  flex-shrink: 0;
+}
+
+/* 詳細情報 (既存の .resultDetails を流用・微調整) */
+.resultDetails {
+  flex-grow: 1;
+  min-width: 100px; /* 最低幅 */
+  overflow: hidden; /* はみ出したテキストを隠す */
+}
+.resultDetails p,
+.resultDetails strong,
+.resultDetails span {
+  margin: 0; /* マージンリセット */
+  line-height: 1.3; /* 行間を狭める */
+  white-space: nowrap; /* 折り返さない */
+  overflow: hidden; /* はみ出しを隠す */
+  text-overflow: ellipsis; /* 省略記号(...) */
+  font-size: 0.9rem; /* 少し小さめ */
+}
+.bookTitle { /* 既存のスタイルを流用 */
+    font-weight: 700;
+    font-size: 0.95rem; /* 少しだけ大きく */
+    color: var(--text-color, #333);
+    display: block; /* 改行させる */
+}
+.bookAuthor { /* 既存のスタイルを流用 */
+    font-size: 0.85rem;
+    color: var(--muted-text-color, #6c757d);
+    display: block; /* 改行させる */
+}
+
+/* 検索結果選択ボタン */
+.receiveItemButton { /* 既存のスタイルを流用・微調整 */
+  margin-left: auto;
+  padding: 0.3rem 0.7rem; /* さらに小さく */
+  font-size: 0.8rem; /* さらに小さく */
+  flex-shrink: 0;
+}
+/* ISBNがない場合の検索ページへのリンクラッパー */
+.linkToFindBook {
+  font-size: 0.9rem;
+  text-align: right; /* 右寄せにする */
+  margin-top: 0.5rem; /* 上の要素との間に少しマージン */
+  color: var(--muted-text-color, #6c757d);
+}
+
+.linkToFindBook a {
+  color: var(--primary-color, #0056b3); /* リンク色をプライマリカラーに */
+  text-decoration: underline; /* 下線を引く */
+}
+.linkToFindBook a:hover {
+  color: #004085; /* ホバー色 */
+}
+
+/* フォーム内のセクションタイトル (前回の回答から) */
+.formSectionTitle {
+  font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+  font-size: 1.3rem;
+  color: var(--text-color, #333);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color, #dee2e6);
+  padding-bottom: 0.5rem;
+}
+/* 確認ページの詳細表示エリア */
+.confirmDetails {
+  margin: 1.5rem 0 2rem 0; /* 上下のマージン */
+  padding: 1.5rem;
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: var(--base-border-radius, 8px);
+  background-color: var(--light-gray-bg, #f8f9fa); /* 背景を少し変える */
+}
+
+.confirmDetails p {
+  margin-bottom: 0.75rem; /* 行間の調整 */
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.confirmDetails p strong {
+  font-weight: 700;
+  color: var(--text-color, #333);
+  margin-right: 0.5em;
+  display: inline-block; /* 幅を確保 */
+  min-width: 70px; /* ラベルの最小幅 (任意) */
+}
+
+/* サムネイルプレビューのマージン調整 (既存のを流用しつつ) */
+.thumbnailPreview {
+  /* 既存のスタイルに加えて、あるいは上書き */
+  margin-bottom: 1.5rem; /* マージン調整 */
+}
+
+/* --- 完了ページ (DonePage) 用スタイル --- */
+
+/* 成功アイコン */
+.successIcon {
+  font-size: 4rem; /* アイコンサイズを大きく */
+  color: var(--success-color, green); /* success色を使用 */
+  margin-bottom: 1.5rem; /* 下に余白 */
+}
+
+/* 成功メッセージタイトル */
+.successTitle {
+  font-family: var(--heading-font-family, 'Montserrat', sans-serif); /* 見出しフォント */
+  color: var(--success-color, green); /* success色を使用 */
+  font-size: 1.8rem; /* 少し大きめのフォントサイズ */
+  margin-top: 0;
+  margin-bottom: 0.5rem; /* 下のテキストとの間隔 */
+}
+
+/* 成功メッセージ本文 */
+.successText {
+  font-size: 1.1rem; /* 少し大きめのフォントサイズ */
+  color: var(--muted-text-color, #6c757d); /* やや薄いテキスト色 */
+  margin-bottom: 2rem; /* ボタンとの間隔 */
+}
+/* src/styles/Form.module.css に追加 */
+
+/* 必要なら .formSectionTitle を追加 */
+.formSectionTitle {
+  font-family: var(--heading-font-family, 'Montserrat', sans-serif);
+  font-size: 1.3rem;
+  color: var(--text-color, #333);
+  margin-top: 2rem; /* 上に余白追加 */
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color, #dee2e6);
+  padding-bottom: 0.5rem;
+}
+
+/* src/styles/Form.module.css に追加または確認 */
+
+/* 登録済み広告リスト */
+.adListContainer {
+  margin-top: 1rem;
+}
+
+.adListItem {
+  display: flex;
+  flex-wrap: wrap; /* スマホで折り返す */
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: var(--base-border-radius, 8px);
+}
+
+.adListThumbnail {
+  width: 100px; /* サムネイルサイズ */
+  height: auto;
+  max-height: 100px;
+  object-fit: contain; /* 枠内に収まるように */
+  border-radius: var(--input-border-radius, 4px);
+  flex-shrink: 0;
+}
+
+.adListInfo {
+  flex-grow: 1;
+  min-width: 200px; /* 情報表示エリアの最小幅 */
+  word-break: break-all; /* URLが長い場合に折り返す */
+}
+
+.adListInfo p {
+  margin: 0.4rem 0;
+  font-size: 0.9rem;
+}
+.adListInfo p strong {
+  font-weight: 700;
+  margin-right: 0.5em;
+}
+
+.adListActions {
+  display: flex;
+  flex-direction: column; /* ボタンを縦に並べる */
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: auto; /* 右寄せ (PC表示時) */
+}
+
+/* ボタンサイズ調整 */
+.adListActions .button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+/* 成功ボタン (緑系) - 必要なら globals.css の変数を使う */
+.buttonSuccess {
+  background-color: var(--success-color, #28a745);
+  color: var(--light-text-color, #fff);
+  border: 1px solid var(--success-color, #28a745);
+}
+.buttonSuccess:hover:not(:disabled) {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+.buttonSuccess:disabled {
+    background-color: #a8dbb6;
+    border-color: #a8dbb6;
+}
+
+
+/* 危険ボタン (赤系) - 必要なら globals.css の変数を使う */
+.buttonDanger {
+  background-color: var(--danger-color, #dc3545);
+  color: var(--light-text-color, #fff);
+  border: 1px solid var(--danger-color, #dc3545);
+}
+.buttonDanger:hover:not(:disabled) {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+.buttonDanger:disabled {
+    background-color: #f1b0b7;
+    border-color: #f1b0b7;
+}
+
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .adListItem {
+    flex-direction: column; /* スマホでは全体を縦積みに */
+    align-items: flex-start;
+  }
+  .adListThumbnail {
+     max-width: 150px; /* スマホでは少し大きく表示しても良いかも */
+     margin-bottom: 0.5rem;
+  }
+  .adListActions {
+    width: 100%;
+    margin-left: 0; /* 右寄せ解除 */
+    margin-top: 1rem;
+    flex-direction: row; /* スマホではボタンを横並びに */
+    justify-content: space-around; /* 均等配置 */
+  }
+}
+ }

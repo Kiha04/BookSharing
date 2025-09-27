@@ -1,0 +1,262 @@
+/* src/styles/Advertise.module.css */
+
+/* --- 基本レイアウト --- */
+.pageContainer {
+    font-family: var(--base-font-family);
+    color: var(--text-color);
+    background-color: #fdfdfd; /* 少しだけオフホワイト */
+  }
+  
+  .contentWrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* --- ヒーローセクション --- */
+  .hero {
+    background: linear-gradient(to right, var(--primary-color, #0056b3), #007bff);
+    color: var(--light-text-color, #fff);
+    padding: 5rem 1rem;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-family: var(--heading-font-family);
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    color: var(--light-text-color);
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+  }
+  
+  .heroCtaButton {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 6px; /* やや角ばったボタン */
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  .heroCtaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    background-color: var(--light-gray-bg);
+  }
+  
+  /* --- セクション共通 --- */
+  .section {
+    padding: 4rem 0;
+  }
+  .sectionAlternate {
+    background-color: var(--light-gray-bg, #f8f9fa);
+    padding: 4rem 0;
+    border-top: 1px solid var(--border-color, #dee2e6);
+    border-bottom: 1px solid var(--border-color, #dee2e6);
+  }
+  
+  .sectionTitle {
+    text-align: center;
+    font-family: var(--heading-font-family);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-color); /* タイトル色は黒系に */
+  }
+  .sectionSubtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--muted-text-color);
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
+.sectionTitle {
+    text-align: center;
+    font-family: var(--heading-font-family);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+  }
+  .sectionTitle::after { /* タイトルの下線装飾 */
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: var(--secondary-color); /* アクセントカラー */
+      margin: 0.5rem auto 0;
+  }
+
+  /* --- メリットセクション --- */
+  .benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .benefitCard {
+    background-color: var(--bg-color);
+    padding: 2rem;
+    border-radius: var(--base-border-radius, 8px);
+    border: 1px solid var(--border-color);
+    /* box-shadow: none; */ /* 影は控えめに */
+    text-align: left; /* 左揃え */
+    display: flex;
+    align-items: flex-start; /* 上揃え */
+    gap: 1rem;
+    aspect-ratio: 1 / 1; /* 幅に対して高さを1:1に */
+  display: flex; /* 中身をflexで配置 */
+  flex-direction: column; /* 縦方向に配置 */
+  justify-content: center; /* 垂直方向中央揃え */
+  text-align: center; /* テキストは中央揃え */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .benefitIcon {
+    font-size: 1.8rem; /* アイコンサイズ調整 */
+    color: var(--primary-color);
+    margin-top: 0.2rem; /* 位置調整 */
+  }
+  
+  .benefitContent h3 {
+    font-family: var(--heading-font-family);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+  
+  .benefitContent p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--muted-text-color);
+    margin-bottom: 0;
+  }
+  
+  
+  /* --- 広告表示イメージ --- */
+  .adExample {
+      background-color: #fff;
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 800px;
+      margin: 2rem auto 0 auto;
+      box-shadow: var(--card-shadow);
+  }
+  .adExample p {
+      text-align: center;
+      font-style: italic;
+      color: var(--muted-text-color);
+      margin-bottom: 1rem;
+  }
+  .adExample img { /* 実際の広告表示コンポーネントのスタイルを模倣 */
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      border: 1px dashed var(--border-color);
+  }
+  
+  
+  /* --- 仕組み (広告掲載プロセス) --- */
+  .processSteps {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-top: 2rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .stepCard {
+      text-align: center;
+      flex: 1;
+  }
+  .stepNumber {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+  }
+  .stepCard h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+  }
+  .stepCard p {
+      font-size: 0.9rem;
+      color: var(--muted-text-color);
+  }
+  
+  /* --- 価格 --- */
+  .pricingDescription {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+  }
+  .pricingHighlight {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 1.5rem;
+  }
+  .pricingNote {
+      font-size: 0.9rem;
+      color: var(--muted-text-color);
+      margin-top: 1.5rem;
+  }
+  
+  /* --- CTA --- */
+  .ctaSection {
+    background: linear-gradient(to right, #e9ecef, #f8f9fa); /* 薄いグレーのグラデーション */
+    padding: 4rem 1rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+  }
+  .ctaSection h2 { /* CTAセクションの見出しは別スタイル */
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+  }
+  .ctaSection p {
+      font-size: 1.1rem;
+      color: var(--muted-text-color);
+      margin-bottom: 2rem;
+  }
+  
+  /* --- レスポンシブ --- */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    .sectionTitle { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .sectionSubtitle { margin-bottom: 2rem; font-size: 1rem;}
+    .benefitsGrid { grid-template-columns: 1fr; }
+    .processSteps { flex-direction: column; gap: 2.5rem;}
+  }

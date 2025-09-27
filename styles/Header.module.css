@@ -1,0 +1,142 @@
+/* src/styles/Header.module.css (全体的に修正) */
+
+.header {
+  background-color: var(--primary-color, #0056b3);
+  padding: 0 1.5rem; /* 上下パディングを0にし、高さを固定 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 60px; /* ヘッダーの高さを固定 (調整可) */
+  display: flex;
+  align-items: center; /* nav要素を垂直中央に */
+}
+
+.nav {
+  display: flex;
+  align-items: center; /* リンクとボタンを垂直中央に */
+  justify-content: space-between; /* ★要素間を左右に広げる */
+  width: 100%; /* 幅いっぱい */
+  max-width: 1200px; /* コンテンツの最大幅 */
+  margin: 0 auto; /* nav自体を中央寄せ */
+  height: 100%; /* ヘッダーの高さに合わせる */
+}
+
+/* メインナビゲーションリンクのラッパー */
+.navLinks {
+    display: flex;
+    align-items: center; /* リンクを垂直中央に */
+    gap: 1.5rem; /* リンク間の隙間 */
+    height: 100%; /* 親要素の高さに合わせる */
+}
+
+.link {
+  color:  #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0 0.5rem; /* 上下のpaddingをなくし、左右を調整 */
+  border-radius: var(--input-border-radius, 4px);
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  position: relative; /* アクティブ下線の基準 */
+  display: flex; /* 高さいっぱいに広げるため */
+  align-items: center;
+  height: 100%; /* ヘッダーの高さに合わせる */
+  border-bottom: 3px solid transparent; /* 通常時は透明な下線 */
+  margin-bottom: -3px; /* 下線分のスペースを補正 */
+}
+
+.link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* アクティブなリンクの下線 */
+.activeLink {
+  /* background-color: rgba(255, 255, 255, 0.05); */ /* アクティブ時の背景は任意 */
+  border-bottom-color: var(--secondary-color, #f0ad4e); /* アクティブ時に下線を表示 */
+}
+
+/* activeLink::after 擬似要素は不要になったので削除 */
+/* .activeLink::after { ... } */
+
+/* 翻訳ボタン */
+.translateButton {
+  /* 位置調整は space-between で行うので不要 */
+  /* position: absolute; */
+  /* right: 0; */
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--input-border-radius, 4px);
+  font-size: 0.85rem;
+  font-weight: normal;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  flex-shrink: 0; /* ボタンが縮まないように */
+}
+
+.translateButton:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  opacity: 1;
+  text-decoration: none;
+}
+
+.translateButton svg {
+    font-size: 1rem;
+}
+
+/* --- レスポンシブ デザイン --- */
+@media (max-width: 768px) {
+  .header {
+     height: 55px; /* スマホでは少し高さを詰める */
+     padding: 0 1rem; /* 左右パディング */
+  }
+  .nav {
+      gap: 0.5rem; /* リンクグループとボタンの間 */
+  }
+  .navLinks {
+      gap: 0.8rem; /* リンク同士の間隔 */
+  }
+  .link {
+    font-size: 0.9rem;
+    padding: 0 0.3rem;
+  }
+  .activeLink {
+     border-bottom-width: 2px; /* スマホでは下線を少し細く */
+     margin-bottom: -2px;
+  }
+
+  .translateButton {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  .translateButtonText { /* スマホではテキストを隠す */
+     display: none;
+  }
+  .translateButton svg {
+     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+    .navLinks {
+        gap: 0.4rem; /* さらに詰める */
+    }
+     .link {
+        font-size: 0.85rem;
+        padding: 0 0.2rem;
+     }
+     .translateButton svg {
+         font-size: 1rem;
+     }
+}

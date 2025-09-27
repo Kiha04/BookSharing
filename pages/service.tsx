@@ -55,7 +55,7 @@ const ServicePage: React.FC = () => {
           </div>
         </section>
 
-         {/* --- 利用イメージ --- */}
+        {/*    {/* --- 利用イメージ --- */}
         <section className={serviceStyles.section}>
              <h3 className={serviceStyles.sectionTitle}>利用イメージ</h3>
               <div className={serviceStyles.screenshotArea}>
@@ -63,7 +63,7 @@ const ServicePage: React.FC = () => {
                  <img src="/images/app-screenshot-placeholder.png" alt={`${serviceName} アプリ画面イメージ`} />
                  <p style={{marginTop: '1rem', fontSize:'0.9em', color:'var(--muted-text-color)'}}>（アプリ画面イメージ）</p>
               </div>
-        </section>
+        </section> */}
 
 
         {/* --- 導入メリット --- */}
@@ -93,8 +93,7 @@ const ServicePage: React.FC = () => {
              </div>
           </div>
         </section>
-
-         {/* --- 次のステップ / 関連リンク --- */}
+        {/*
          <section className={`${serviceStyles.section} ${serviceStyles.ctaSection}`}>
              <h3 className={serviceStyles.sectionTitle}>さらに詳しく</h3>
              <p>
@@ -114,7 +113,7 @@ const ServicePage: React.FC = () => {
                 </Link>
              </div>
          </section>
-
+*/}
       </div>
     </>
   );

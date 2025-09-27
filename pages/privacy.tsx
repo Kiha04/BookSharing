@@ -120,8 +120,6 @@ const PrivacyPolicyPage: React.FC = () => {
 >
   お問い合わせフォームを開く
 </a>
-        </p>
-
       </div>
     </>
   );

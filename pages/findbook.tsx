@@ -1,4 +1,4 @@
-// src/pages/findbook.tsx (修正後)
+//pages/findbook.tsx (修正後)
 
 import React, { useState } from 'react';
 import axios from 'axios';
@@ -7,7 +7,6 @@ import { useRouter } from 'next/router';
 import styles from '../styles/Form.module.css';
 import { FaSearch, FaBook } from 'react-icons/fa';
 
-// --- 型定義 (変更なし) ---
 interface VolumeInfo {
   title?: string;
   authors?: string[];
@@ -31,7 +30,6 @@ export default function FindBookPage() {
   const [searchError, setSearchError] = useState("");
   const router = useRouter();
 
-  // searchBooks 関数 (変更なし)
   const searchBooks = async () => {
     if (!searchTitle && !searchAuthor) {
       setSearchError("タイトルまたは著者を入力してください。");
@@ -62,26 +60,22 @@ export default function FindBookPage() {
     }
   };
 
-  // ★★★ selectBookForDonation 関数を修正 ★★★
   const selectBookForDonation = (bookItem: BookItem) => {
     const bookInfo = bookItem.volumeInfo;
     if (!bookInfo) return;
 
-    // ISBNを抽出
     const isbn13 = bookInfo.industryIdentifiers?.find(id => id.type === "ISBN_13")?.identifier;
     const isbn10 = bookInfo.industryIdentifiers?.find(id => id.type === "ISBN_10")?.identifier;
-    // const isbnOther = bookInfo.industryIdentifiers?.find(id => id.type === "ISBN")?.identifier; // 必要なら
-    const foundIsbn = isbn13 || isbn10 || ""; // 13桁を優先、なければ10桁
+    const foundIsbn = isbn13 || isbn10 || ""; 
 
-    // クエリパラメータを作成
+  
     const queryParams = new URLSearchParams({
       title: bookInfo.title || "",
       author: bookInfo.authors?.[0] || "",
-      isbn: foundIsbn, // ★★★ isbn をqueryParamsに含める ★★★
+      isbn: foundIsbn,
       thumbnail: bookInfo.imageLinks?.thumbnail || "",
     });
 
-    // Donateページへリダイレクト
     router.push(`/donate?${queryParams.toString()}`);
   };
 
@@ -98,7 +92,6 @@ export default function FindBookPage() {
              <br/><a href="https://books.google.co.jp/">ISBNがN/Aと表示される場合、この文章をタップしてISBNを取得してください。</a>
          </p> */}
 
-        {/* --- 検索フォーム (変更なし) --- */}
         <div className={styles.formGroup}>
           <label htmlFor="search-title" className={styles.label}>タイトル</label>
           <input id="search-title" value={searchTitle} onChange={(e) => setSearchTitle(e.target.value)} className={styles.input} placeholder="書籍のタイトルを入力" disabled={isLoading} />
@@ -118,11 +111,9 @@ export default function FindBookPage() {
           </button>
         </div>
 
-        {/* --- エラー・ローディング表示 (変更なし) --- */}
         {searchError && <p className={styles.error} style={{ textAlign: 'center' }}>{searchError}</p>}
         {isLoading && <p className={styles.infoMessage}>検索中...</p>}
 
-        {/* --- 検索結果表示 (keyの値を修正) --- */}
         {searchResults.length > 0 && (
           <div className={styles.resultsContainer}>
             <h3 className={styles.resultsTitle}>検索結果</h3>
@@ -130,9 +121,6 @@ export default function FindBookPage() {
               const isbn13 = item.volumeInfo.industryIdentifiers?.find(id => id.type === "ISBN_13")?.identifier;
               const isbn10 = item.volumeInfo.industryIdentifiers?.find(id => id.type === "ISBN_10")?.identifier;
               const displayIsbn = isbn13 || isbn10 || 'N/A';
-
-              // ★★★ key には item.id (Google Books APIのID) を使用 ★★★
-              // アプリ内で一意であればISBNでも可: key={displayIsbn !== 'N/A' ? displayIsbn : item.id}
               return (
                 <div key={item.id} className={styles.searchResultItem}>
                   {item.volumeInfo.imageLinks?.thumbnail && (

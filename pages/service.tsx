@@ -1,13 +1,12 @@
-// src/pages/service.tsx (新規作成)
+//pages/service.tsx
 
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-// 既存のスタイルを流用・組み合わせる
 import containerStyles from '../styles/Form.module.css';
-import policyStyles from '../styles/Policy.module.css'; // 見出し等に流用
-import featureStyles from '../styles/LandingPage.module.css'; // 特徴カードスタイルを流用
-import serviceStyles from '../styles/Service.module.css'; // サービスページ専用スタイル
+import policyStyles from '../styles/Policy.module.css';
+import featureStyles from '../styles/LandingPage.module.css';
+import serviceStyles from '../styles/Service.module.css';
 import { FaMobileAlt, FaSearch, FaExchangeAlt, FaRecycle, FaGraduationCap, FaUniversity, FaLeaf, FaUsers } from 'react-icons/fa';
 
 const ServicePage: React.FC = () => {
@@ -28,7 +27,6 @@ const ServicePage: React.FC = () => {
           高価な教科書購入の負担を軽減し、資源の有効活用を促進することで、学生と大学、そして環境にとってもメリットのある仕組みを提供します。
         </p>
 
-        {/* --- 主な機能 --- */}
         <section className={serviceStyles.section}>
           <h3 className={serviceStyles.sectionTitle}>主な機能</h3>
           <div className={featureStyles.featuresGrid}> {/* LandingPageのスタイルを流用 */}

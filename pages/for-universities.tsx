@@ -1,4 +1,4 @@
-// src/pages/for-universities.tsx (価格・寄付セクション修正)
+//pages/for-universities.tsx 
 
 import React from 'react';
 import Head from 'next/head';

@@ -1,4 +1,4 @@
-// src/pages/books.tsx
+//pages/books.tsx
 
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -6,7 +6,6 @@ import Head from "next/head";
 import styles from '../styles/Form.module.css';
 import { FaSearch } from "react-icons/fa";
 
-// --- 型定義 (変更なし) ---
 interface VolumeInfo {
   imageLinks?: { thumbnail?: string };
 }
@@ -24,7 +23,6 @@ type Book = {
   stock: number;
   imageLinks?: { thumbnail?: string };
 };
-// --- ここまで ---
 
 export default function SearchPage() {
   const [search, setSearch] = useState("");
@@ -46,7 +44,6 @@ export default function SearchPage() {
     }
   };
 
-  // ★★★ fetchBooks 関数を修正 ★★★
   const fetchBooks = async () => {
     setIsLoading(true);
     setError("");
@@ -58,9 +55,7 @@ export default function SearchPage() {
       });
       const booksFromApi = res.data;
 
-      // ★ APIからの応答が配列であるかをチェック ★
       if (Array.isArray(booksFromApi)) {
-        // --- 応答が配列（成功）の場合 ---
         if (booksFromApi.length === 0) {
           // setMessage("該当する本が見つかりませんでした。"); // 必要ならメッセージstateを追加
           setBooks([]);
@@ -78,7 +73,6 @@ export default function SearchPage() {
         setBooks(booksWithThumbnails);
 
       } else {
-        // --- 応答が配列でない（エラーオブジェクト）の場合 ---
         console.error("API returned a non-array response:", booksFromApi);
         setError(booksFromApi.error || "検索結果の取得に失敗しました。");
       }

@@ -11,9 +11,10 @@ const Footer: React.FC = () => {
       <div className={styles.footerContent}>
         <p>&copy; {new Date().getFullYear()} 学内図書シェアプロジェクト. All rights reserved.</p>
         <nav className={styles.footerLinks}>
+          <a href="/index">ホームへ戻る</a>
+           <a href="/contact">お問い合わせ</a>　<br />
            <a href="/terms">利用規約</a>
-           <a href="/privacy">プライバシーポリシー</a>　<br />
-           <a href="/contact">お問い合わせ</a>
+           <a href="/privacy">プライバシーポリシー</a> 　<br />
            <a href="/service">サービス案内はこちら</a>
            {/*
            <a href="/for-universities">学校関係者はこちら</a>

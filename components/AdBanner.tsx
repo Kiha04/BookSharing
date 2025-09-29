@@ -1,11 +1,11 @@
-// src/components/AdBanner.tsx
+//components/AdBanner.tsx
 
-import React, { useState, useEffect, useRef, JSX } from 'react'; // JSX 型のインポートは通常不要
+import React, { useState, useEffect, useRef, JSX } from 'react';
 import Link from 'next/link';
-import styles from '../styles/AdBanner.module.css'; // ラッパーとタイトルのスタイルも含む
+import styles from '../styles/AdBanner.module.css'; 
 import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 
-// --- 型定義 ---
+
 type AdConfig = {
   id: string;
   type: 'image';
@@ -14,17 +14,17 @@ type AdConfig = {
   altText: string;
   linkUrl: string;
   isExternal: boolean;
-  weight: number; // 正の数である必要あり
+  weight: number;
 };
 
-// --- 広告設定 ---
+
 const ADS_CONFIG: AdConfig[] = [
   {
     id: 'ad001',
     type: 'image',
-    imageUrl: '/images/ads/meio-u-logo.png', // public/images/ads/ に配置
-    altText: '名桜大学',
-    linkUrl: 'https://www.meio-u.ac.jp/',
+    imageUrl: '/images/ads/sakuraum.png', // public/images/ads/ に配置
+    altText: 'SAKURAUM',
+    linkUrl: 'https://www.meio-u.ac.jp/campus/map/sakuraum/',
     isExternal: false,
     weight: 5,
   },

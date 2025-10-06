@@ -69,7 +69,7 @@ const selectWeightedRandomAd = (ads: AdConfig[]): AdConfig | null => {
     return null;
   }
 
-  // --- 広告コンテンツ (画像または動画) を生成 ---
+  // --- 広告コンテンツ (画像) を生成 ---
   let adContentElement: JSX.Element | null = null;
 
   if (selectedAd.type === 'image' && selectedAd.imageUrl) {

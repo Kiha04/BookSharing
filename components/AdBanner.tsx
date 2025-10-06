@@ -24,7 +24,7 @@ const ADS_CONFIG: AdConfig[] = [
     type: 'image',
     imageUrl: '/images/ads/questionnaire.png', // public/images/ads/ に配置
     altText: 'アンケート',
-    linkUrl: 'https://www.meio-u.ac.jp/welnavi/',
+    linkUrl: '',
     isExternal: false,
     weight: 3,
   },

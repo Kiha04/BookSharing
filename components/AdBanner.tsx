@@ -22,11 +22,10 @@ const ADS_CONFIG: AdConfig[] = [
   {
     id: 'ad001',
     type: 'image',
-    imageUrl: '/images/ads/sakuraum.png', // public/images/ads/ に配置
-    altText: 'SAKURAUM',
-    linkUrl: 'https://www.meio-u.ac.jp/campus/map/sakuraum/',
+    imageUrl: '/images/ads/questionnaire.png', // public/images/ads/ に配置
+    altText: 'アンケート',
     isExternal: false,
-    weight: 5,
+    weight: 3,
   },
   {
     id: 'ad002',
@@ -35,7 +34,7 @@ const ADS_CONFIG: AdConfig[] = [
     altText: '名桜ウェルナビ',
     linkUrl: 'https://www.meio-u.ac.jp/welnavi/',
     isExternal: false,
-    weight: 5,
+    weight: 1,
   },
   // 必要に応じて広告を追加
 ];

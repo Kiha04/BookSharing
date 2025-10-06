@@ -10,7 +10,6 @@ type AdConfig = {
   id: string;
   type: 'image';
   imageUrl?: string;
-  videoUrl?: string;
   altText: string;
   linkUrl: string;
   isExternal: boolean;

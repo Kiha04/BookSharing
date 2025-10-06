@@ -24,7 +24,7 @@ const ADS_CONFIG: AdConfig[] = [
     type: 'image',
     imageUrl: '/images/ads/questionnaire.png', // public/images/ads/ に配置
     altText: 'アンケート',
-    linkUrl: '',
+    linkUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdaipBlZGv6E86lNmFGAtmsCmZg42aUy7cebj751LJwFYY_cw/viewform?usp=header',
     isExternal: false,
     weight: 3,
   },

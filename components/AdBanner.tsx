@@ -62,24 +62,7 @@ const selectWeightedRandomAd = (ads: AdConfig[]): AdConfig | null => {
 };
 
 
-const AdBanner: React.FC = () => {
-  const [selectedAd, setSelectedAd] = useState<AdConfig | null>(null);
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    setSelectedAd(selectWeightedRandomAd(ADS_CONFIG));
-  }, []);
-
-  const toggleMute = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    event.stopPropagation();
-    if (videoRef.current) {
-      const currentMuted = !videoRef.current.muted;
-      videoRef.current.muted = currentMuted;
-      setIsMuted(currentMuted);
-    }
-  };
 
   // ★ 表示すべき広告がない場合は、ここで null を返す
   if (!selectedAd) {

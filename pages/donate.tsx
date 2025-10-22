@@ -124,10 +124,9 @@ export default function DonatePage() {
       alert("タイトルを入力してください。");
       return;
     }
-    const data = { isbn, title, author, thumbnail, from: "donate" };
+    const data = { isbn, title, author, thumbnail };
     const encoded = encodeURIComponent(JSON.stringify(data));
-    router.push(`/confirm?data=${encoded}`);
-  };
+    router.push(`/confirm-donate?data=${encoded}`);  };
 
   return (
     <div className={styles.container}>

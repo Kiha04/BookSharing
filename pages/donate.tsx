@@ -1,4 +1,4 @@
-// pages/DonatePage.tsx
+// pages/Donate.tsx
 import React, { useState, useEffect } from "react";
 import axios, { AxiosError, isAxiosError } from "axios";
 import { useRouter } from "next/router";

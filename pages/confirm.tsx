@@ -30,6 +30,7 @@ export default function ConfirmPage() {
       try {
         const decoded = JSON.parse(decodeURIComponent(router.query.data as string));
         setBook(decoded as BookConfirmationData);
+        console.log("ConfirmPage でデコードされたデータ:", decoded);
       } catch (e) {
         console.error("❌ Failed to parse query data:", e);
         setError("確認データの読み込みに失敗しました。");

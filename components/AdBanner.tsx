@@ -1,22 +1,21 @@
-// src/components/AdBanner.tsx (Corrected)
+//components/AdBanner.tsx
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react'; // useRef は不要に
 import Link from 'next/link';
 import styles from '../styles/AdBanner.module.css';
-import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
+// FaVolumeMute, FaVolumeUp は不要に
 
-// --- Type definition ---
+// --- 型定義 (画像広告のみ) ---
 type AdConfig = {
   id: string;
-  type: 'image' | 'video';
-  imageUrl?: string;
-  videoUrl?: string;
+  imageUrl: string;
   altText: string;
   linkUrl: string;
   isExternal: boolean;
   weight: number;
 };
 
+// --- 広告設定 (画像のみ) ---
 const ADS_CONFIG: AdConfig[] = [
   {
     id: 'ad001',
@@ -36,11 +35,11 @@ const ADS_CONFIG: AdConfig[] = [
     isExternal: false,
     weight: 1,
   },
+  // 必要に応じて他の画像広告を追加
 ];
-// --- End of ad settings ---
+// --- ここまで広告設定 ---
 
-
-// Weighted selection function (no changes needed here)
+// 重み付け選択関数
 const selectWeightedRandomAd = (ads: AdConfig[]): AdConfig | null => {
   const validAds = ads.filter(ad => ad.weight > 0);
   if (validAds.length === 0) return null;
@@ -54,77 +53,28 @@ const selectWeightedRandomAd = (ads: AdConfig[]): AdConfig | null => {
   return validAds[validAds.length - 1];
 };
 
-
 const AdBanner: React.FC = () => {
-  // ★★★ Ensure this useState line is INSIDE the AdBanner function ★★★
   const [selectedAd, setSelectedAd] = useState<AdConfig | null>(null);
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setSelectedAd(selectWeightedRandomAd(ADS_CONFIG));
-  }, []); // Empty dependency array means this runs only once when the component mounts
+  }, []);
 
-  const toggleMute = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    event.stopPropagation();
-    if (videoRef.current) {
-      const currentMuted = !videoRef.current.muted;
-      videoRef.current.muted = currentMuted;
-      setIsMuted(currentMuted);
-    }
-  };
-
-  // ★ If no ad is selected, render nothing
+  // 表示すべき広告がない場合は null を返す
   if (!selectedAd) {
     return null;
   }
 
-  // --- Generate ad content (image or video) ---
-  let adContentElement: JSX.Element | null = null;
+  // --- 画像広告コンテンツを生成 ---
+  const adContentElement = (
+    <img
+      src={selectedAd.imageUrl}
+      alt={selectedAd.altText}
+      className={styles.adBannerImage}
+    />
+  );
 
-  if (selectedAd.type === 'image' && selectedAd.imageUrl) {
-    adContentElement = (
-       <img
-         src={selectedAd.imageUrl}
-         alt={selectedAd.altText}
-         className={styles.adBannerImage}
-       />
-    );
-  } else if (selectedAd.type === 'video' && selectedAd.videoUrl) {
-    adContentElement = (
-      <div className={styles.videoContainer}>
-        <video
-          ref={videoRef}
-          src={selectedAd.videoUrl}
-          className={styles.adVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        >
-          {selectedAd.altText || '動画広告'}
-        </video>
-        <button
-          type="button"
-          onClick={toggleMute}
-          className={styles.muteButton}
-          aria-label={isMuted ? "ミュート解除" : "ミュート"}
-          title={isMuted ? "ミュート解除" : "ミュート"}
-        >
-          {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
-        </button>
-      </div>
-    );
-  }
-
-  // If content couldn't be generated, render nothing
-  if (!adContentElement) {
-     return null;
-  }
-
-  // ★ Render the wrapper, title, and the ad itself
+  // --- ラッパー、タイトル、広告本体を返す ---
   return (
     <div className={styles.adAreaWrapper}>
       <h3 className={styles.adAreaTitle}>協賛・サポーター</h3>
@@ -135,7 +85,7 @@ const AdBanner: React.FC = () => {
           </a>
         ) : (
           <Link href={selectedAd.linkUrl} className={styles.adBannerLink}>
-              {adContentElement}
+            {adContentElement}
           </Link>
         )}
       </div>

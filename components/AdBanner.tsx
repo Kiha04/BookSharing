@@ -19,20 +19,18 @@ type AdConfig = {
 const ADS_CONFIG: AdConfig[] = [
   {
     id: 'ad001',
-    type: 'image',
     imageUrl: '/images/ads/questionnaire.png', // public/images/ads/ に配置
     altText: 'アンケート',
     linkUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdaipBlZGv6E86lNmFGAtmsCmZg42aUy7cebj751LJwFYY_cw/viewform?usp=header',
-    isExternal: false,
+    isExternal: true,
     weight: 3,
   },
   {
     id: 'ad002',
-    type: 'image',
     imageUrl: '/images/ads/meiowelnavi-logo.png',
     altText: '名桜ウェルナビ',
     linkUrl: 'https://www.meio-u.ac.jp/welnavi/',
-    isExternal: false,
+    isExternal: true,
     weight: 1,
   },
   // 必要に応じて他の画像広告を追加

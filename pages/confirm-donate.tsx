@@ -92,6 +92,7 @@ export default function ConfirmDonatePage() {
           {book.isbn && <p><strong>ISBN:</strong> {book.isbn}</p>}
           <p><strong>操作:</strong> 寄付する</p>
         </div>
+      </div>
       )}
 
       {/* 同意チェックボックス (常に表示) */}

@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios, { isAxiosError } from "axios";
 import styles from '../styles/Form.module.css';
 import { FaCheckCircle, FaArrowLeft, FaExclamationTriangle } from "react-icons/fa"; // アイコン追加
 
@@ -30,7 +30,7 @@ export default function ConfirmPage() {
       try {
         const decoded = JSON.parse(decodeURIComponent(router.query.data as string));
         setBook(decoded as BookConfirmationData);
-        console.log("ConfirmPage でデコードされたデータ:", decoded);
+        console.log("Confirmでデコードされたデータ:", decoded);
       } catch (e) {
         console.error("❌ Failed to parse query data:", e);
         setError("確認データの読み込みに失敗しました。");

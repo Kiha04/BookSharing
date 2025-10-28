@@ -1,10 +1,10 @@
 //pages/index.tsx
 
-import React, { useState, useRef } from 'react'; 
+import React, { useState, useRef } from 'react'; // ★ 1. useRef をインポート
 import { motion } from 'framer-motion';
-import Link from 'next/link'; 
+import Link from 'next/link'; // ★ 3. フッター内のLinkのためにインポート
 import styles from '../styles/LandingPage.module.css';
-import { FaBookOpen, FaCamera, FaSearch, FaExchangeAlt, FaMapMarkerAlt, FaInfoCircle, FaRecycle } from 'react-icons/fa';
+import { FaBookOpen, FaCamera, FaSearch, FaUsers, FaMapMarkerAlt, FaInfoCircle, FaRecycle, FaExchangeAlt } from 'react-icons/fa';
 import ScrollToTopButton from "../components/ScrollToTopButton";
 
 const sampleBookImages = [
@@ -19,6 +19,9 @@ const sampleBookImages = [
 
 const LandingPage = () => {
   const [activeTab, setActiveTab] = useState<'donate' | 'receive'>('donate');
+  // ★ 2. footerRef 変数を定義
+  const footerRef = useRef<HTMLElement>(null);
+
   const pageVariants = {
     initial: { opacity: 0 },
     in: { opacity: 1 },
@@ -44,25 +47,25 @@ const LandingPage = () => {
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
           <motion.h1
-             initial={{ y: -30, opacity: 0 }}
-             animate={{ y: 0, opacity: 1 }}
-             transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             学内図書シェア <FaBookOpen className={styles.heroIcon}/>
           </motion.h1>
           <motion.p
-             initial={{ y: -20, opacity: 0 }}
-             animate={{ y: 0, opacity: 1 }}
-             transition={{ duration: 0.6, delay: 0.4 }}
-             className={styles.tagline}
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className={styles.tagline}
           >
             その教科書を、次の誰かへ。
           </motion.p>
           <motion.p
-             initial={{ y: -20, opacity: 0 }}
-             animate={{ y: 0, opacity: 1 }}
-             transition={{ duration: 0.6, delay: 0.6 }}
-             className={styles.description}
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className={styles.description}
            >
              使わなくなった教科書を、必要としている他の学生へ。簡単・無料でシェアできる学内プラットフォームです。
           </motion.p>
@@ -89,7 +92,6 @@ const LandingPage = () => {
             >
               <FaSearch /> 教科書を探す
             </motion.a>
-
             <motion.a
               href="/receive"
               className={`${styles.ctaButton} ${styles.donateButton}`}
@@ -119,6 +121,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+
       <section className={styles.sectionContainer}>
         <h2 className={styles.sectionTitle}>サービスの特徴</h2>
         <div className={styles.featuresGrid}>
@@ -137,13 +140,14 @@ const LandingPage = () => {
             <h3><span className={styles.highlight}>手間なし</span>受け渡し</h3>
             <p>学内の専用本棚で自由に受け渡し。面倒な連絡や待ち合わせは不要。</p>
           </motion.div>
-           <motion.div className={styles.featureCard} whileHover={{ y: -5 }}>
+            <motion.div className={styles.featureCard} whileHover={{ y: -5 }}>
             <FaRecycle className={styles.featureIcon} />
             <h3><span className={styles.highlight}>無料 & エコ</span></h3>
             <p>教科書代を節約し、資源の再利用にも貢献。サステナブルな学生生活を。</p>
           </motion.div>
         </div>
       </section>
+
       <section className={styles.sectionContainer}>
         <h2 className={styles.sectionTitle}>使い方ガイド</h2>
         <div className={styles.tabs}>
@@ -180,8 +184,8 @@ const LandingPage = () => {
               <h4>教科書をもらう流れ</h4>
               <ol className={styles.stepList}>
               <p className={styles.subNote}>
-  先に<a href="/books">オンライン検索</a>で在庫を確認するか、直接本棚へ行って欲しい本を探してもOK！
-</p>
+                先に<a href="/books">オンライン検索</a>で在庫を確認するか、直接本棚へ行って欲しい本を探してもOK！
+              </p>
                 <li><span>Step 1:</span> このアプリで<a href="/books">「教科書を探す」</a>を選択し、欲しい本があるか検索。（任意）</li>
                 <li><span>Step 2:</span> 欲しい本を見つけたら（または直接探しに行って）指定の本棚へ行く。</li>
                 <li><span>Step 3:</span> 本棚から<strong className={styles.highlight}>実際に本を手に取る</strong>。</li>
@@ -190,20 +194,21 @@ const LandingPage = () => {
                 <li><span>Step 6:</span> 完了！システム上で受け取りが記録されます。（本をお持ち帰りしていただけます！）</li>
               </ol>
               <div className={styles.receivePageLink}>
-                 <motion.a
-                   href="/receive"
-                   className={`${styles.ctaButton} ${styles.receiveAction}`}
-                   whileHover={{ scale: 1.05 }}
-                   whileTap={{ scale: 0.95 }}
-                 >
-                   <FaBookOpen /> 本棚で本を見つけたら (もらうページへ)
-                 </motion.a>
+                   <motion.a
+                      href="/receive"
+                      className={`${styles.ctaButton} ${styles.receiveAction}`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <FaBookOpen /> 本棚で本を見つけたら (もらうページへ)
+                   </motion.a>
               </div>
               <p className={styles.note}><FaInfoCircle/> 必ず本を実際に手にとって確保してから「もらう」処理を行ってください。</p>
             </motion.div>
           )}
         </div>
       </section>
+
       <section className={`${styles.sectionContainer} ${styles.locationSection}`}>
          <div className={styles.locationContent}>
             <h2 className={styles.sectionTitle}><FaMapMarkerAlt /> 本棚はここにあります</h2>
@@ -214,10 +219,23 @@ const LandingPage = () => {
               <p className={styles.note}>※SAKURAUMの開館時間に準じます。</p>
             </div>
          </div>
-         {/* <div className={styles.locationMap}>
-            <img src="/path/to/map-image.png" alt="本棚の場所の地図" />
-         </div> */}
       </section>
+      
+      {/* ★ 3. フッター要素を追加し、ref={footerRef} を設定 */}
+      {/* このフッターは _app.tsx のグローバルフッターとは別です */}
+      {/* LandingPage.module.css に .footer スタイルが定義されている必要があります */}
+      <footer className={styles.footer} ref={footerRef}>
+          <div className={styles.footerContent}>
+              <p>© {new Date().getFullYear()} 学内図書シェアプロジェクト. All rights reserved.</p>
+              <nav className={styles.footerLinks}>
+                 <Link href="/terms">利用規約</Link> |
+                 <Link href="/privacy">プライバシーポリシー</Link> |
+                 <Link href="/contact">お問い合わせ</Link>
+              </nav>
+          </div>
+      </footer>
+
+      {/* ★ 4. ScrollToTopButton に footerRef を渡す */}
       <ScrollToTopButton footerRef={footerRef} />
     </motion.div>
   );

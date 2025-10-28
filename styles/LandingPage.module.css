@@ -8,6 +8,14 @@
   background-color: var(--bg-color);
 }
 
+.imageCaption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted-text-color, #6c757d); 
+  margin-top: 0.75rem; 
+  padding: 0 1rem; 
+}
+
 .heroSection {
   position: relative;
   display: flex;

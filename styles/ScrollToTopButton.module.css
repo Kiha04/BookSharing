@@ -1,0 +1,27 @@
+/* src/styles/ScrollToTopButton.module.css */
+
+.scrollToTop {
+  position: fixed;
+  /* bottom はコンポーネント側で動的に設定されます */
+  right: 2rem;
+  background-color: var(--primary-color, #f289be); /* globals.cssの変数を使用 */
+  color: white;
+  border: none;
+  border-radius: 50%; /* 円形 */
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;  /* アイコンサイズ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
+  /* bottom位置の変更が滑らかになるようにtransitionを追加 */
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+.scrollToTop:hover {
+  opacity: 1;
+}

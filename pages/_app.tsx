@@ -1,7 +1,8 @@
 // pages/_app.tsx
 import type { AppProps } from "next/app";
 import { useRouter } from 'next/router';
-import { useEffect, useRef } from 'react'; // useRef と useEffect をインポート
+import { useEffect } from 'react';
+import { useRef } from 'react';
 import '../styles/globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -79,7 +80,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </main>
       {shouldShowAd && <AdBanner />}
       <Footer ref={footerRef} /> {/* footerRef を渡す */}
-      <ScrollToTopButton footerRef={footerRef}/> {/* footerRef を渡す */}
+      <ScrollToTopButton footerRef={footerRef} />
     </>
   );
 }

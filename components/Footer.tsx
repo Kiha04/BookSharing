@@ -1,32 +1,34 @@
-//components/Footer.tsx
+// components/Footer.tsx
 
-import React from 'react';
-import styles from '../styles/Footer.module.css'; 
+import styles from '../styles/Footer.module.css';
 import Link from 'next/link';
+import React, { forwardRef, ForwardedRef } from 'react';
 
-const Footer: React.FC = () => {
-
+// ★ forwardRef でコンポーネントをラップし、props と ref を引数で受け取る
+const Footer = forwardRef<HTMLElement>((props, ref: ForwardedRef<HTMLElement>) => {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} ref={ref}>
       <div className={styles.footerContent}>
         <p>&copy; {new Date().getFullYear()} 学内図書シェアプロジェクト. All rights reserved.</p>
         <nav className={styles.footerLinks}>
-          <a href="/index">ホームへ戻る</a>
-           <a href="/contact">お問い合わせ</a>　<br />
-           <a href="/terms">利用規約</a>
-           <a href="/privacy">プライバシーポリシー</a> 　<br />
-           <a href="/service">サービス案内はこちら</a>
-           {/*
-           <a href="/for-universities">学校関係者はこちら</a>
-           <a href="/advertise">企業の方はこちら</a>
-           <a href="/about">会社案内はこちら</a>
-           */}
+          <Link href="/">ホームへ戻る</Link> | {/* 区切り文字を調整 */}
+          <Link href="/contact">お問い合わせ</Link> |
+          <Link href="/terms">利用規約</Link> |
+          <Link href="/privacy">プライバシーポリシー</Link> |
+          <Link href="/service">サービス案内はこちら</Link>
+          {/*
+           <Link href="/for-universities">学校関係者はこちら</Link>
+           <Link href="/advertise">企業の方はこちら</Link>
+           <Link href="/about">会社案内はこちら</Link>
+          */}
         </nav>
       </div>
       <br />
-      <br />
     </footer>
   );
-};
+});
+
+// ★ displayName を設定 (デバッグ用)
+Footer.displayName = 'Footer';
 
 export default Footer;

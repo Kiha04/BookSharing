@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react'; // ★ 1. useRef をインポート
 import { motion } from 'framer-motion';
-import Link from 'next/link'; // ★ 3. フッター内のLinkのためにインポート
+import Link from 'next/link'; 
 import styles from '../styles/LandingPage.module.css';
 import { FaBookOpen, FaCamera, FaSearch, FaUsers, FaMapMarkerAlt, FaInfoCircle, FaRecycle, FaExchangeAlt } from 'react-icons/fa';
 import ScrollToTopButton from "../components/ScrollToTopButton";

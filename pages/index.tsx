@@ -217,7 +217,7 @@ const LandingPage = () => {
             <img src="/path/to/map-image.png" alt="本棚の場所の地図" />
          </div> */}
       </section>
-      <ScrollToTopButton />
+      <ScrollToTopButton footerRef={footerRef} />
     </motion.div>
   );
 };

@@ -6,6 +6,7 @@ import BarcodeScanner from "../components/BarcodeScanner";
 import { useRouter } from "next/router";
 import styles from '../styles/Form.module.css';
 import { FaCamera, FaSearch } from "react-icons/fa";
+import { useRef } from 'react';
 
 type Book = {
   id: number;

@@ -10,7 +10,7 @@ import ScrollToTopButton from "../components/ScrollToTopButton";
 // サンプル画像の定義（内容は省略）
 const sampleBookImages = [
   /images/book1.jpg,
-  /imagesbook2.jpg,
+  /images/book2.jpg,
   /images/book3.jpg,
   /images/book4.jpg,
   /images/book5.jpg,

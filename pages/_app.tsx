@@ -1,4 +1,4 @@
-// src/pages/_app.tsx (修正後)
+//pages/_app.tsx
 
 import type { AppProps } from "next/app";
 import { useRouter } from 'next/router';

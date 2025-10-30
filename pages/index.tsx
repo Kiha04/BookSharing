@@ -1,24 +1,26 @@
-// pages/index.tsx
+// pages/index.tsx (修正後)
 
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from '../styles/LandingPage.module.css';
-import { FaBookOpen, FaCamera, FaSearch, FaUsers, FaMapMarkerAlt, FaInfoCircle, FaRecycle, FaExchangeAlt } from 'react-icons/fa';
+// ★ FaUsers は使われていなかったため、インポートから削除
+import { FaBookOpen, FaCamera, FaSearch, FaMapMarkerAlt, FaInfoCircle, FaRecycle, FaExchangeAlt } from 'react-icons/fa';
 import ScrollToTopButton from "../components/ScrollToTopButton";
 
-// サンプル画像の定義（内容は省略）
+// ★ 1. 変数定義をコンポーネントの外（import文の後）に配置
+// ★ 2. 各画像パスを文字列として引用符 ("") で囲む
 const sampleBookImages = [
-  /images/book1.jpg,
-  /images/book2.jpg,
-  /images/book3.jpg,
-  /images/book4.jpg,
-  /images/book5.jpg,
-  /images/book6.jpg,
-  /images/book7.jpg,
-  /images/book8.jpg,
-  /images/book9.jpg,
-  /images/book10.jpg,
+  "/images/book1.jpg",
+  "/images/book2.jpg",
+  "/images/book3.jpg",
+  "/images/book4.jpg",
+  "/images/book5.jpg",
+  "/images/book6.jpg",
+  "/images/book7.jpg",
+  "/images/book8.jpg",
+  "/images/book9.jpg",
+  "/images/book10.jpg",
 ];
 
 const LandingPage = () => {
@@ -110,6 +112,7 @@ const LandingPage = () => {
         </div>
       </header>
 
+      {/* ★ 3. スクロールセクションを return の中に移動 */}
       <section className={styles.scrollingImagesSection}>
         <div className={styles.scrollingImagesContainer}>
           <div className={styles.scrollingImagesTrack}>
@@ -127,7 +130,7 @@ const LandingPage = () => {
           ※画像はイメージです。実際に登録されている情報とは関係がありません。
         </p>
       </section>
-
+      
       <section className={styles.sectionContainer}>
         <h2 className={styles.sectionTitle}>サービスの特徴</h2>
         <div className={styles.featuresGrid}>

@@ -9,16 +9,16 @@ import ScrollToTopButton from "../components/ScrollToTopButton";
 
 // サンプル画像の定義（内容は省略）
 const sampleBookImages = [
-  /images/books/book1.jpg,
-  /images/books/book2.jpg,
-  /images/books/book3.jpg,
-  /images/books/book4.jpg,
-  /images/books/book5.jpg,
-  /images/books/book6.jpg,
-  /images/books/book7.jpg,
-  /images/books/book8.jpg,
-  /images/books/book9.jpg,
-  /images/books/book10.jpg,
+  /images/book1.jpg,
+  /imagesbook2.jpg,
+  /images/book3.jpg,
+  /images/book4.jpg,
+  /images/book5.jpg,
+  /images/book6.jpg,
+  /images/book7.jpg,
+  /images/book8.jpg,
+  /images/book9.jpg,
+  /images/book10.jpg,
 ];
 
 const LandingPage = () => {

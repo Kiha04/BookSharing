@@ -230,7 +230,8 @@ const LandingPage = () => {
          </div>
       </section>
       
-     
+
+    </motion.div>
   );
 };
 

@@ -21,8 +21,9 @@ const PrivacyPolicyPage: React.FC = () => {
         <h3 className={policyStyles.policySectionTitle}>第1条（個人情報）</h3>
         <p className={policyStyles.policyText}>
           「個人情報」とは，個人情報保護法にいう「個人情報」を指すものとし，生存する個人に関する情報であって，当該情報に含まれる氏名，生年月日，住所，電話番号，連絡先その他の記述等により特定の個人を識別できる情報及び容貌，指紋，声紋にかかるデータ，及び健康保険証の保険者番号などの当該情報単体から特定の個人を識別できる情報（個人識別情報）を指します。
+        <br /> 本サービスでは、2025年11月1日現在において、利用者の個人情報を取得いたしません。また、Cookieを使用する場合もありますが、Cookieには個人を特定する情報は含まれていません。
         </p>
-
+<!--
         <h3 className={policyStyles.policySectionTitle}>第2条（個人情報の収集方法）</h3>
         <p className={policyStyles.policyText}>
           当社は，ユーザーが利用登録をする際に氏名，生年月日，住所，電話番号，メールアドレス，銀行口座番号，クレジットカード番号，運転免許証番号などの個人情報をお尋ねすることがあります。また，ユーザーと提携先などとの間でなされたユーザーの個人情報を含む取引記録や決済に関する情報を,当社の提携先（情報提供元，広告主，広告配信先などを含みます。以下，｢提携先｣といいます。）などから収集することがあります。
@@ -102,14 +103,14 @@ const PrivacyPolicyPage: React.FC = () => {
             <li>当社は，前項の規定に基づき利用停止等を行った場合，または利用停止等を行わない旨の決定をしたときは，遅滞なく，これをユーザーに通知します。</li>
             <li>前2項にかかわらず，利用停止等に多額の費用を有する場合その他利用停止等を行うことが困難な場合であって，ユーザーの権利利益を保護するために必要なこれに代わるべき措置をとれる場合は，この代替策を講じるものとします。</li>
         </ol>
-
-        <h3 className={policyStyles.policySectionTitle}>第9条（プライバシーポリシーの変更）</h3>
+--!>
+        <h3 className={policyStyles.policySectionTitle}>第2条（プライバシーポリシーの変更）</h3>
         <ol className={policyStyles.policyList}>
             <li>本ポリシーの内容は，法令その他本ポリシーに別段の定めのある事項を除いて，ユーザーに通知することなく，変更することができるものとします。</li>
             <li>当社が別途定める場合を除いて，変更後のプライバシーポリシーは，本ウェブサイトに掲載したときから効力を生じるものとします。</li>
         </ol>
 
-        <h3 className={policyStyles.policySectionTitle}>第10条（お問い合わせ窓口）</h3>
+        <h3 className={policyStyles.policySectionTitle}>第3条（お問い合わせ窓口）</h3>
         <p className={policyStyles.policyText}>
           本ポリシーに関するお問い合わせは，下記の窓口までお願いいたします。
         </p>

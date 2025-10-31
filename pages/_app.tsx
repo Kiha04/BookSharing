@@ -1,4 +1,4 @@
-//pages/_app.tsx
+//pages/_app.tsx 
 
 import type { AppProps } from "next/app";
 import { useRouter } from 'next/router';
@@ -8,16 +8,37 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import AdBanner from '../components/AdBanner';
 import ScrollToTopButton from '../components/ScrollToTopButton';
+import Script from 'next/script'; // GA用 (既存のまま)
+
+
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const currentPath = router.pathname;
   const footerRef = useRef<HTMLElement>(null);
 
-  // --- 広告とヘッダーの表示ロジック (既存) ---
+
+
+  // 広告とヘッダーの表示ロジック
   const adExclusionPaths = ['/', '/terms', '/privacy', '/contact', '/advertise', '/for-universities', '/about','/service'];
   const shouldShowAd = !adExclusionPaths.includes(currentPath) && !currentPath.startsWith('/admin');
   const headerExclusionPaths = ['/login', '/_error'];
   const shouldShowHeader = !headerExclusionPaths.includes(currentPath);
+  
+  return (
+    <>
+     
 
+      {shouldShowHeader && <Header />}
+      
+      <main>
+        <Component {...pageProps} />
+      </main>
+      
+      {shouldShowAd && <AdBanner />}
+
+      <Footer ref={footerRef} />
+      <ScrollToTopButton footerRef={footerRef}/>
+    </>
+  );
 }

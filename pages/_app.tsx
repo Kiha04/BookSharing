@@ -20,24 +20,4 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const headerExclusionPaths = ['/login', '/_error'];
   const shouldShowHeader = !headerExclusionPaths.includes(currentPath);
 
-  // ★ 1. ホームページかどうかを判定
-  const isHomePage = currentPath === '/';
-
-  return (
-    <>
-      {shouldShowHeader && <Header />}
-      <main>
-        <Component {...pageProps} />
-      </main>
-      {shouldShowAd && <AdBanner />}
-
-      {/* ★ 2. ホームページではない時だけ、共通フッターと共通ボタンを表示 */}
-      {!isHomePage && (
-        <>
-          <Footer ref={footerRef} />
-          <ScrollToTopButton footerRef={footerRef} />
-        </>
-      )}
-    </>
-  );
 }

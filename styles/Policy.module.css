@@ -50,3 +50,8 @@
     background-color: #f8f9fa;
     padding: 0 0.2em;
   }
+
+.textRed {
+  color: red;
+  font-weight: bold;
+}

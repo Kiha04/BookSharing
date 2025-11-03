@@ -224,8 +224,9 @@ const LandingPage = () => {
             <div className={styles.locationDetails}>
               <h3>学生会館SAKURAUM 2階エレベーターホール</h3>
               <p>エレベーターに向かってすぐ右側のスペースに設置しています。</p>
-              <p>開館時間: 平日 9:00〜20:00 / 土日祝 10:00〜17:00</p>
-              <p className={styles.note}>※SAKURAUMの開館時間に準じます。</p>
+              <p>開館時間: 平日 8:00〜20:00 / 土曜日 8:00〜12:00　/　日曜祝日 休館</p>
+              <p className={styles.note}>※SAKURAUMの開館時間に準じます。
+              <br /><a href="https://www.instagram.com/meio_sakuraum_/">最新の会館情報はこちら</a></p>
             </div>
          </div>
       </section>

@@ -24,7 +24,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   // ★ GAのページビュー追跡(useEffect)を削除
 
   // --- 表示制御ロジック ---
-  const adExclusionPaths = ['/', '/terms', '/privacy', '/contact', '/advertise', '/for-universities', '/about','/service'];
+  const adExclusionPaths = ['/terms', '/privacy', '/contact', '/advertise', '/for-universities', '/about','/service'];
   const shouldShowAd = !adExclusionPaths.includes(currentPath) && !currentPath.startsWith('/admin');
   
   const headerExclusionPaths = ['/login', '/_error'];

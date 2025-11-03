@@ -1,8 +1,8 @@
-/* src/styles/Footer.module.css (新規作成) */
+/* /styles/Footer.module.css */
 
 .footer {
     background-color: #f69ce4; /* ランディングページフッターの色を流用 */
-    color: var(--light-text-color, #010101);
+    color: var(--light-text-color, #ffffff);
     padding: 1.5rem 1rem; /* パディング */
     margin-top: 4rem; /* メインコンテンツとの間に十分なマージン */
     text-align: center;

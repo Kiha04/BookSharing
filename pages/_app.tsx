@@ -59,7 +59,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       
       {shouldShowAd && <AdBanner />}
       
-      <Footer ref={footerRef} />
       <ScrollToTopButton footerRef={footerRef}/>
     </>
   );

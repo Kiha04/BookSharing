@@ -20,7 +20,7 @@ const TextbookPolicyPage: React.FC = () => {
 
         <h3 className={policyStyles.policySectionTitle}>1. 寄付できる教科書について</h3>
         <ul className={policyStyles.policyList}>
-          <li>大学の講義で使用した**教科書**および**参考書**</li>
+          <li>大学の講義で使用した「教科書」および「参考書」</li>
           <li>シラバスで指定されている書籍</li>
           <li>資格試験の参考書や問題集など、学習に関連する書籍</li>
           <li><strong>（本の状態）</strong>次に使う人が問題なく学習できる状態であること（多少の書き込みやマーカーは問題ありません）</li>
@@ -40,7 +40,7 @@ const TextbookPolicyPage: React.FC = () => {
 
         <h3 className={policyStyles.policySectionTitle}>3. 寄付された教科書の所有権について</h3>
         <p className={policyStyles.policyText}>
-          本棚に寄付された教科書の**所有権は放棄**されたものとみなします。一度寄付した本を後から取り戻すことはできません。寄付された本は、コミュニティ全体の共有資産となります。
+          本棚に寄付された教科書の[所有権は放棄]されたものとみなします。一度寄付した本を後から取り戻すことはできません。
         </p>
 
         <h3 className={policyStyles.policySectionTitle}>4. 本棚の管理と本の廃棄について</h3>

@@ -1,31 +1,28 @@
-//pages/_app.tsx (お知らせバー追加)
+// pages/_app.tsx
 
 import type { AppProps } from "next/app";
 import { useRouter } from 'next/router';
-import { useRef, useEffect } from 'react'; // useEffect をインポート
-import Link from 'next/link'; // ★ Link をインポート
+import { useRef } from 'react'; // ★ useEffect はGA専用だったので削除
+import Link from 'next/link';
 import '../styles/globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import AdBanner from '../components/AdBanner';
 import ScrollToTopButton from '../components/ScrollToTopButton';
-import Script from 'next/script';
-import announcementStyles from '../styles/Announcement.module.css'; // ★ お知らせバーのCSSをインポート
+// import Script from 'next/script'; // ★ GA関連のため削除
+import announcementStyles from '../styles/Announcement.module.css';
 
-// GA_MEASUREMENT_ID や gtag の型定義
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-declare global {
-    interface Window {
-        gtag: (...args: any[]) => void;
-    }
-}
+// ★ GA関連の定数と型定義を削除
+// const GA_MEASUREMENT_ID = ...
+// declare global { ... }
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const currentPath = router.pathname;
   const footerRef = useRef<HTMLElement>(null);
 
-  
+  // ★ GAのページビュー追跡(useEffect)を削除
+
   // --- 表示制御ロジック ---
   const adExclusionPaths = ['/', '/terms', '/privacy', '/contact', '/advertise', '/for-universities', '/about','/service'];
   const shouldShowAd = !adExclusionPaths.includes(currentPath) && !currentPath.startsWith('/admin');
@@ -33,16 +30,16 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const headerExclusionPaths = ['/login', '/_error'];
   const shouldShowHeader = !headerExclusionPaths.includes(currentPath);
 
-  // ★ お知らせバーを表示しないページを定義
-  // (ホームページ、方針ページ自体、管理ページなど)
   const bannerExclusionPaths = ['/', '/policy', '/terms', '/privacy', '/contact', '/for-universities', '/advertise', '/about', '/service'];
   const shouldShowPolicyBanner = !bannerExclusionPaths.includes(currentPath) && !currentPath.startsWith('/admin');
 
- 
-
+  // ★ return 文を正しい位置に修正
+  return (
+    <>
+      {/* ★ GAのScriptタグを削除 */}
+    
       {shouldShowHeader && <Header />}
 
-      {/* ★ ヘッダーの直下にお知らせバーを配置 ★ */}
       {shouldShowPolicyBanner && (
         <div className={announcementStyles.announcementBar}>
           本サービスをご利用の際は、必ず
@@ -59,6 +56,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       
       {shouldShowAd && <AdBanner />}
       
+      {/* ★ FooterとScrollToTopButtonの呼び出しを修正 */}
+      <Footer ref={footerRef} />
       <ScrollToTopButton footerRef={footerRef}/>
     </>
   );

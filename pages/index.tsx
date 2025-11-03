@@ -228,20 +228,7 @@ const LandingPage = () => {
          </div>
       </section>
       
-      {/* ★ 3. フッター要素を追加し、ref={footerRef} を設定 */}
-      <footer className={styles.footer} ref={footerRef}>
-          <div className={styles.footerContent}>
-              <p>© {new Date().getFullYear()} 学内図書シェアプロジェクト. All rights reserved.</p>
-              <nav className={styles.footerLinks}>
-                 <Link href="/terms">利用規約</Link> |
-                 <Link href="/privacy">プライバシーポリシー</Link> |
-                 <Link href="/contact">お問い合わせ</Link>
-              </nav>
-          </div>
-      </footer>
 
-      {/* ★ 4. ScrollToTopButton に footerRef を渡す */}
-      <ScrollToTopButton footerRef={footerRef} />
     </motion.div>
   );
 };

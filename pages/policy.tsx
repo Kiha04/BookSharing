@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-// 既存のスタイルを流用
 import containerStyles from '../styles/Form.module.css';
 import policyStyles from '../styles/Policy.module.css'; // 利用規約ページと同じスタイル
 
@@ -40,7 +39,7 @@ const TextbookPolicyPage: React.FC = () => {
 
         <h3 className={policyStyles.policySectionTitle}>3. 寄付された教科書の所有権について</h3>
         <p className={policyStyles.policyText}>
-          本棚に<span className={styles.textRed}>寄付された教科書の[所有権は放棄]されたもの</span>とみなします。一度寄付した本を<span className={styles.textRed}>後から取り戻すことはできません。</span>
+          本棚に<span className={policyStyles.textRed}>寄付された教科書の[所有権は放棄]されたもの</span>とみなします。一度寄付した本を<span className={policyStyles.textRed}>後から取り戻すことはできません。</span>
         </p>
 
         <h3 className={policyStyles.policySectionTitle}>4. 本棚の管理と本の廃棄について</h3>

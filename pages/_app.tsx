@@ -25,21 +25,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const currentPath = router.pathname;
   const footerRef = useRef<HTMLElement>(null);
 
-  // GAのページビュー追跡
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      if (process.env.NODE_ENV === 'production' && GA_MEASUREMENT_ID && typeof window.gtag === 'function') {
-        window.gtag('config', GA_MEASUREMENT_ID, {
-          page_path: url,
-        });
-      }
-    };
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
-
+  
   // --- 表示制御ロジック ---
   const adExclusionPaths = ['/', '/terms', '/privacy', '/contact', '/advertise', '/for-universities', '/about','/service'];
   const shouldShowAd = !adExclusionPaths.includes(currentPath) && !currentPath.startsWith('/admin');
@@ -52,25 +38,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const bannerExclusionPaths = ['/', '/policy', '/terms', '/privacy', '/contact', '/for-universities', '/advertise', '/about', '/service'];
   const shouldShowPolicyBanner = !bannerExclusionPaths.includes(currentPath) && !currentPath.startsWith('/admin');
 
-  return (
-    <>
-      {/* GAスクリプト */}
-      {process.env.NODE_ENV === 'production' && GA_MEASUREMENT_ID && (
-        <>
-          <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
-          <Script id="google-analytics" strategy="afterInteractive" dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_MEASUREMENT_ID}', {
-                  page_path: window.location.pathname,
-                });
-              `,
-            }}
-          />
-        </>
-      )}
+ 
 
       {shouldShowHeader && <Header />}
 

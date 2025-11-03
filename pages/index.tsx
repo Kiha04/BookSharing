@@ -1,15 +1,13 @@
-// pages/index.tsx (修正後)
+// pages/index.tsx
 
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from '../styles/LandingPage.module.css';
-// ★ FaUsers は使われていなかったため、インポートから削除
+// ★ FaUsers を削除
 import { FaBookOpen, FaCamera, FaSearch, FaMapMarkerAlt, FaInfoCircle, FaRecycle, FaExchangeAlt } from 'react-icons/fa';
 import ScrollToTopButton from "../components/ScrollToTopButton";
 
-// ★ 1. 変数定義をコンポーネントの外（import文の後）に配置
-// ★ 2. 各画像パスを文字列として引用符 ("") で囲む
 const sampleBookImages = [
   "/images/book1.jpg",
   "/images/book2.jpg",
@@ -25,7 +23,7 @@ const sampleBookImages = [
 
 const LandingPage = () => {
   const [activeTab, setActiveTab] = useState<'donate' | 'receive'>('donate');
-  const footerRef = useRef<HTMLElement>(null);
+  const footerRef = useRef<HTMLElement>(null); // ← 定義はここにあります
 
   const pageVariants = {
     initial: { opacity: 0 },
@@ -112,7 +110,6 @@ const LandingPage = () => {
         </div>
       </header>
 
-      {/* ★ 3. スクロールセクションを return の中に移動 */}
       <section className={styles.scrollingImagesSection}>
         <div className={styles.scrollingImagesContainer}>
           <div className={styles.scrollingImagesTrack}>
@@ -226,12 +223,25 @@ const LandingPage = () => {
               <p>エレベーターに向かってすぐ右側のスペースに設置しています。</p>
               <p>開館時間: 平日 8:00〜20:00 / 土曜日 8:00〜12:00　/ 日曜祝日 休館</p>
               <p className={styles.note}>※SAKURAUMの開館時間に準じます。
-              <br /><Link href="https://www.instagram.com/meio_sakuraum_/">最新の会館情報はこちら</Link></p>
+               <br /> <Link href="https://www.instagram.com/meio_sakuraum_/">最新の会館情報はこちら</Link> </p>
             </div>
          </div>
       </section>
       
+      {/* ★ 3. フッター要素を追加し、ref={footerRef} を設定 */}
+      <footer className={styles.footer} ref={footerRef}>
+          <div className={styles.footerContent}>
+              <p>© {new Date().getFullYear()} 学内図書シェアプロジェクト. All rights reserved.</p>
+              <nav className={styles.footerLinks}>
+                 <Link href="/terms">利用規約</Link> |
+                 <Link href="/privacy">プライバシーポリシー</Link> |
+                 <Link href="/contact">お問い合わせ</Link>
+              </nav>
+          </div>
+      </footer>
 
+      {/* ★ 4. ScrollToTopButton に footerRef を渡す */}
+      <ScrollToTopButton footerRef={footerRef} />
     </motion.div>
   );
 };

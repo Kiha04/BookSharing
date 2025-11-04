@@ -225,7 +225,7 @@ const LandingPage = () => {
               <p className={styles.note}>※SAKURAUMの開館時間に準じます。</p>
 <p>
   <Link
-    href="https://www.instagram.com/meio_sakuraum/"
+    href="https://www.instagram.com/meio_sakuraum_/"
     target="_blank"
     rel="noopener noreferrer"
   >

@@ -55,6 +55,15 @@ const TextbookPolicyPage: React.FC = () => {
           <li>本棚はみんなの共有スペースです。次に使う人のことを考え、丁寧に扱ってください。</li>
         </ul>
 
+        <h3 className={policyStyles.policySectionTitle}>6. プロジェクト終了後、学内で一切引き継ぎができない場合として、以下の手順を行います。 </h3>
+        <ul className={policyStyles.policyList}>
+　<br />1. 全ての学生が自由に持ち帰れるような譲渡会を開催
+　<br />2. 図書館に寄贈
+　<br />記1・2を行った上で、余った場合 
+　<br />3. 専門業者への売却・寄付(利益が発生した場合は、大学へ寄付) 
+　<br />4.資源としてリサイクル
+
+
       </div>
     </>
   );
